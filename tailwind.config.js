@@ -6,7 +6,21 @@ export default {
   // prefix: 'tw-',
   content: ["./**/*.{js,json,liquid}"],
   theme: {
-    extend: {},
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+        lg: "4rem",
+        xl: "5rem",
+        "2xl": "6rem",
+      },
+    },
+    extend: {
+      fontFamily: {
+        openSans: ["Open Sans", "sans-serif"],
+      },
+    },
   },
   plugins: [
     remToPxPlugin({
