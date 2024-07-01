@@ -1,6 +1,3 @@
-{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-
 {%- liquid
   assign social_icons = true
   if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
@@ -17,24 +14,70 @@
 {% if social_icons %}
   {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 {% endif %}
-<section style="background-color: {%- if section.settings.bg-color_announcement_id -%} {{- section.settings.bg-color_announcement_id -}}{%- endif -%}; color: {%- if section.settings.text-color_announcement_id -%}{{- section.settings.text-color_announcement_id  -}}{%- endif -%}" class="w-full h-fit py-4 {% if section.settings.show_line_separator %} border {% endif %}">
-  <div class="container">
-    {% for block in section.blocks %}
-        {%- case block.type -%}
-          {%- when "announcement" -%}
-            <div class="w-full mySlides hidden">
-              <a class="block text-center font-openSans text-sm font-normal lg:text-base" href="{{ block.settings.url }}">
-                {{ block.settings.text }}
-              </a>
+{% if section.settings.display_annoucement == true %}
+  <section style="background-color: {%- if section.settings.bg-color_announcement_id -%} {{- section.settings.bg-color_announcement_id -}}{%- endif -%}; color: {%- if section.settings.text-color_announcement_id -%}{{- section.settings.text-color_announcement_id  -}}{%- endif -%}" class="w-full h-[51px] flex justify-center items-center {% if section.settings.show_line_separator %} border {% endif %}">
+    <div class="container flex justify-center items-center gap-2">   
+        <div class="hidden lg:!block lg:full lg:w-full lg:max-w-[33%]">
+          {% if section.settings.show_social and social_icons  %}
+            {% render 'social-medias' %}
+          {% endif %}
+        </div>    
+      {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when "announcement" -%}
+              <div class="w-full mySlides hidden  h-full border lg:w-full lg:max-w-[33%]">
+                <p class="block text-center font-openSans text-sm font-normal">
+                  <a class="block"  href="{{ block.settings.url }}">
+                    {{ block.settings.text }}
+                  </a>
+                </p>
+              </div>
+          {%- endcase -%}
+      {% endfor %}          
+      <div class="hidden lg:!block lg:w-full lg:max-w-[33%] border">
+        {% form 'localization' %}         
+          <div class="hidden lg:!flex lg:justify-end lg:items-center lg:gap-4">
+            <div class="lg:relative lg:w-[130px]">
+              <button type="button" class="country-language-1 lg:block lg:text-end lg:w-full">
+                {{ localization.country }}
+              </button>
+              <div class="country-language-card-1 lg:hidden lg:bg-white shadow-2xl lg:p-4 lg:absolute lg:z-10 lg:top-9 lg:right-0 lg:w-[130px]">
+                {% for country in localization.available_countries %}
+                  <li class="lg:block lg:text-black lg:py-2 lg:text-center">
+                    <a href="#" data-value="{{ country.iso_code }}">
+                      {{ country.name }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </div>
             </div>
-        {%- endcase -%}
-    {% endfor %}
-    
-  </div>
-</section>
+            
+            <div class="lg:relative lg:w-[130px]">
+              <button type="button" class="country-language-2 lg:block lg:text-end lg:w-full">English</button>
+              <div class="country-language-card-2 lg:hidden lg:bg-white z-10 shadow-2xl lg:p-4 lg:absolute lg:top-9 lg:right-0 lg:w-[130px]">
+                <span class="lg:block lg:text-black lg:py-2 lg:text-center">Austria</span>
+                <span class="lg:block lg:text-black lg:py-2 lg:text-center">Canada</span>
+                <span class="lg:block lg:text-black lg:py-2 lg:text-center">United States</span>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+        {% endform %}
+      </div>
+      
+    </div>
+  </section>
+      
+  
+
+  
+{% endif %}
 <script>
   let slideIndex = 0;
   showSlides();
+  // Liquid speed variable
+  let changeSlidesSpeed = {{ section.settings.change_slides_speed |  escape }}
+  let inChangeSlidesSpeed = changeSlidesSpeed * 1000;
 
   function showSlides() {
     let slides = document.getElementsByClassName("mySlides");
@@ -48,8 +91,19 @@
     slides[slideIndex - 1 ].classList.remove("hidden")
     slides[slideIndex - 1].classList.add("block")
     setTimeout(showSlides, 5000)
-
   }
+
+  // Open and close country and language modal
+  const countryLanguageOne = document.getElementsByClassName('country-language-1')[0];
+  const countryLanguageTwo = document.getElementsByClassName('country-language-2')[0];
+  const countryLanguageCardOne = document.getElementsByClassName('country-language-card-1')[0];
+  const countryLanguageCardTwo =document.getElementsByClassName('country-language-card-2')[0];
+  
+  countryLanguageOne.addEventListener('click', () =>{
+   countryLanguageCardOne.classList.remove('lg:hidden')
+   countryLanguageCardOne.classList.add('lg:block')
+  })
+
 </script>
 {% schema %}
 {
@@ -60,6 +114,17 @@
     "groups": ["header"]
   },
   "settings": [
+    {
+      "type": "header",
+      "content": "Display Announcement",
+      "info": "Decide whether you want to display or hide your annoucement bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_annoucement",
+      "default": true,
+      "label": "Display Announcement"
+    },
     {
       "type": "color",
       "id": "bg-color_announcement_id",
