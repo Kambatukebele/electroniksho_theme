@@ -25,7 +25,7 @@
       {% for block in section.blocks %}
           {%- case block.type -%}
             {%- when "announcement" -%}
-              <div class="w-full mySlides hidden  h-full border lg:w-full lg:max-w-[33%]">
+              <div class="w-full mySlides hidden  h-full lg:w-full lg:max-w-[33%]">
                 <p class="block text-center font-openSans text-sm font-normal">
                   <a class="block"  href="{{ block.settings.url }}">
                     {{ block.settings.text }}
@@ -34,14 +34,14 @@
               </div>
           {%- endcase -%}
       {% endfor %}          
-      <div class="hidden lg:!block lg:w-full lg:max-w-[33%] border">
+      <div class="hidden lg:!block lg:w-full lg:max-w-[33%]">
         {% form 'localization' %}         
           <div class="hidden lg:!flex lg:justify-end lg:items-center lg:gap-4">
             <div class="lg:relative lg:w-[130px]">
               <button type="button" class="country-language-1 lg:block lg:text-end lg:w-full">
                 {{ localization.country }}
               </button>
-              <div class="country-language-card-1 lg:hidden lg:bg-white shadow-2xl lg:p-4 lg:absolute lg:z-10 lg:top-9 lg:right-0 lg:w-[130px]">
+              <div class="country-language-card-1 lg:hidden lg:bg-white shadow-2xl lg:p-4 lg:absolute lg:z-10 lg:transition lg:duration-700 lg:ease-in-out lg:-mt-36 lg:w-[130px]">
                 {% for country in localization.available_countries %}
                   <li class="lg:block lg:text-black lg:py-2 lg:text-center">
                     <a href="#" data-value="{{ country.iso_code }}">
@@ -50,11 +50,12 @@
                   </li>
                 {% endfor %}
               </div>
-            </div>
-            
+            </div>            
             <div class="lg:relative lg:w-[130px]">
-              <button type="button" class="country-language-2 lg:block lg:text-end lg:w-full">English</button>
-              <div class="country-language-card-2 lg:hidden lg:bg-white z-10 shadow-2xl lg:p-4 lg:absolute lg:top-9 lg:right-0 lg:w-[130px]">
+              <button type="button" class="country-language-2 lg:block lg:text-end lg:w-full">
+                English
+              </button>
+              <div class="country-language-card-2 lg:hidden lg:bg-white z-10 shadow-2xl lg:p-4 lg:absolute lg:transition lg:duration-700 lg:ease-in-out lg:-mt-36 lg:w-[130px]">
                 <span class="lg:block lg:text-black lg:py-2 lg:text-center">Austria</span>
                 <span class="lg:block lg:text-black lg:py-2 lg:text-center">Canada</span>
                 <span class="lg:block lg:text-black lg:py-2 lg:text-center">United States</span>
@@ -98,11 +99,30 @@
   const countryLanguageTwo = document.getElementsByClassName('country-language-2')[0];
   const countryLanguageCardOne = document.getElementsByClassName('country-language-card-1')[0];
   const countryLanguageCardTwo =document.getElementsByClassName('country-language-card-2')[0];
+
+  function ShowHIdeCountryLanguage (language, card) {
+    language.addEventListener('click', () =>{
+      if (card.classList.contains('lg:hidden')) {
+        card.classList.remove('lg:hidden');
+        card.classList.add('lg:block')
+        card.classList.remove('lg:-mt-36');
+        card.classList.add('lg:mt-0');
+        card.classList.add('lg:top-9');
+        card.classList.add('lg:right-0');
+      }else{
+        card.classList.add('lg:hidden');
+        card.classList.remove('lg:block')
+        card.classList.add('lg:-mt-36');
+        card.classList.remove('lg:mt-0');
+        card.classList.remove('lg:top-9');
+        card.classList.remove('lg:right-0');
+      }
+    })
+  }
+
+  ShowHIdeCountryLanguage(countryLanguageOne, countryLanguageCardOne);
+  ShowHIdeCountryLanguage(countryLanguageTwo, countryLanguageCardTwo);
   
-  countryLanguageOne.addEventListener('click', () =>{
-   countryLanguageCardOne.classList.remove('lg:hidden')
-   countryLanguageCardOne.classList.add('lg:block')
-  })
 
 </script>
 {% schema %}
