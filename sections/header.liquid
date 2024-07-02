@@ -1,58 +1,58 @@
 <section class="w-full h-fit">
-  <div class="container py-4 h-fit">
-    <div class="flex justify-between items-center">
-      <div class="w-5 h-5 grow-0 cursor-pointer md:hidden">
-        {% render 'icon-hamburger' %}
+  <div class="container h-[84px] flex justify-center items-center flex-row">
+    <div class="w-full flex justify-between items-center gap-4 lg:py-4 bg-red-400">
+      <div class="w-full block lg:!hidden">
+        <div class="w-5 h-5 grow-0 cursor-pointer">
+          {% render 'icon-hamburger' %}
+        </div>
       </div>
-      <div class="grow border flex justify-center">
-        <a href="">
+      <div class="grow flex justify-start items-center w-full lg:w-[210px] lg:[50px] border lg:grow-0">
+        <a class="block lg:w-[210px] lg:[50px]" href="">
           {%- if section.settings.logo_header != blank -%}
-            <img src="{{ section.settings.logo_header |  image_url: width:120  }}" alt="">
+            <img class="lg:w-full lg:h-full lg:object-cover lg:object-center block" src="{{ section.settings.logo_header |  image_url: width:master  }}" alt="">
           {%- else -%}
             {{ shop.name }}
           {%- endif -%}         
         </a>
       </div>
-      <div class="hidden md:!block md:w-full md:border">
-        <div class="flex justify-between items-center w-full border">
+      <div class="hidden lg:border lg:!block lg:max-w-[526px] lg:h-fit bg-red-300">
+        <form class="flex justify-center items-center lg:w-[528px] border bg-green-300">
           <div >
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="Search" class="w-[473px] px-5 h-[45px]">
           </div>
-          <div>
-            <svg aria-hidden="true" fill="none" focusable="false" width="24" height="24" class="modal__toggle-open icon icon-search" viewBox="0 0 24 24"><path d="M10.364 3a7.364 7.364 0 1 0 0 14.727 7.364 7.364 0 0 0 0-14.727Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></path><path d="M15.857 15.858 21 21.001" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"></path></svg>
+          <div class="lg:w-[55px] lg:h-[45px] lg:flex lg:justify-center lg:items-center">
+            {% render 'search-input' %}
           </div>
-        </div>
+        </form>
       </div>
-      <div class="grow-0 flex border">
-        <div>
-          <div class="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="icon icon-account"><g id="_01_align_center" data-name="01 align center"><path d="M21,24H19V18.957A2.96,2.96,0,0,0,16.043,16H7.957A2.96,2.96,0,0,0,5,18.957V24H3V18.957A4.963,4.963,0,0,1,7.957,14h8.086A4.963,4.963,0,0,1,21,18.957Z"></path><path d="M12,12a6,6,0,1,1,6-6A6.006,6.006,0,0,1,12,12ZM12,2a4,4,0,1,0,4,4A4,4,0,0,0,12,2Z"></path></g></svg>
+      <div class="grow-0 flex justify-end items-center w-full gap-2 xl:bg-green-600 xl:justify-between">
+        <div class="xl:w-[155px] xl:h-fit xl:border xl:flex xl:justify-center xl:items-center xl:gap-3">
+          <div class="hidden lg:!block lg:w-[30px] lg:h-[30px]">
+            {% render 'person' %}
           </div>
-          <div class="hidden">
-            <p>Account</p>
-            <p>Log in / Sign in</p>
+          <div class="hidden xl:!block">
+            <p class="xl:text-xs xl:text-black xl:font-normal xl:uppercase">Account</p>
+            <p class="xl:text-sm xl:text-black xl:font-openSans xl:font-semibold">Log in / Sign in</p>
           </div>
         </div>
-        <div class="w-10 relative">
-          <div class="w-3 h-3">
-            <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="24" height="24" class="icon icon-wishlist"><path d="M23.836,8.794a3.179,3.179,0,0,0-3.067-2.226H16.4L15.073,2.432a3.227,3.227,0,0,0-6.146,0L7.6,6.568H3.231a3.227,3.227,0,0,0-1.9,5.832L4.887,15,3.535,19.187A3.178,3.178,0,0,0,4.719,22.8a3.177,3.177,0,0,0,3.8-.019L12,20.219l3.482,2.559a3.227,3.227,0,0,0,4.983-3.591L19.113,15l3.56-2.6A3.177,3.177,0,0,0,23.836,8.794Zm-2.343,1.991-4.144,3.029a1,1,0,0,0-.362,1.116L18.562,19.8a1.227,1.227,0,0,1-1.895,1.365l-4.075-3a1,1,0,0,0-1.184,0l-4.075,3a1.227,1.227,0,0,1-1.9-1.365L7.013,14.93a1,1,0,0,0-.362-1.116L2.507,10.785a1.227,1.227,0,0,1,.724-2.217h5.1a1,1,0,0,0,.952-.694l1.55-4.831a1.227,1.227,0,0,1,2.336,0l1.55,4.831a1,1,0,0,0,.952.694h5.1a1.227,1.227,0,0,1,.724,2.217Z"></path></svg>
+        <div class="w-7 relative flex justify-end items-center lg:w-16 lg:border">
+          <div class="w-5 h-5 lg:w-[30px] lg:h-[30px]">
+            {% render 'stars' %}
           </div>
-          <div class="w-4 h-4 absolute -top-2 right-3 bg-blue-600 flex justify-center items-center rounded-full text-white text-xs">0</div>
+          <div class="w-4 h-4 absolute -top-2 -right-1 bg-blue-600 flex justify-center items-center rounded-full text-white text-xs lg:w-[18px] lg:h-[18px]">0</div>
         </div>
-        <div class="relative w-11">
+        <div class="relative w-7 flex justify-end items-center lg:w-16 lg:border xl:w-[145px] xl:h-fit xl:border xl:flex xl:justify-center xl:items-center xl:gap-3">
           <div class="relative">
-            <div class="w-3 h-3">
-              <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" class="icon icon-cart-empty" width="24" height="24" viewBox="0 0 24 24">
-                <path d="m23,6c0-1.654-1.346-3-3-3h-10c-1.654,0-3,1.346-3,3v10h16V6Zm-9-1h2v3h-2v-3Zm7,9h-12V6c0-.551.448-1,1-1h2v5h6v-5h2c.552,0,1,.449,1,1v8Zm-15,4.038c-.552,0-1-.448-1-1V3.039C5,1.384,3.654.039,2,.039H0v2h2c.552,0,1,.449,1,1v14c0,1.654,1.346,3,3,3v.5c0,1.93,1.57,3.5,3.5,3.5s3.5-1.57,3.5-3.5v-.5h3v.5c0,1.93,1.57,3.5,3.5,3.5s3.5-1.57,3.5-3.5v-.5h1v-2H6Zm5,2.5c0,.827-.673,1.5-1.5,1.5s-1.5-.673-1.5-1.5v-.5h3v.5Zm10,0c0,.827-.673,1.5-1.5,1.5s-1.5-.673-1.5-1.5v-.5h3v.5Z"></path>
-              </svg>
+            <div class="w-5 h-5 lg:w-[30px] lg:h-[30px]">
+              {% render 'basket' %}
             </div>
-            <div class="w-4 h-4 absolute -top-2 right-3 bg-blue-600 flex justify-center items-center rounded-full text-white text-xs">
+            <div class="w-4 h-4 absolute -top-2 -right-1 bg-blue-600 flex justify-center items-center rounded-full text-white text-xs lg:w-[18px] lg:h-[18px]">
               0
             </div>
           </div>
-          <div class="hidden">
-            <p>Total</p>
-            <p>$0.00USD</p>
+          <div class="hidden xl:!block">
+            <p class="xl:text-xs xl:text-black xl:font-normal xl:uppercase">Total</p>
+            <p class="xl:text-sm xl:text-black xl:font-openSans xl:font-semibold">$0.00USD</p>
           </div>
         </div>
       </div>
