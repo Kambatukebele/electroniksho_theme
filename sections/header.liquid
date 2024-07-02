@@ -1,32 +1,30 @@
 <section class="w-full h-fit">
   <div class="container h-[84px] flex justify-center items-center flex-row">
-    <div class="w-full flex justify-between items-center gap-4 lg:py-4 bg-red-400">
+    <div class="w-full flex justify-between items-center gap-4 lg:py-4">
       <div class="w-full block lg:!hidden">
         <div class="w-5 h-5 grow-0 cursor-pointer">
           {% render 'icon-hamburger' %}
         </div>
       </div>
-      <div class="grow flex justify-start items-center w-full lg:w-[210px] lg:[50px] border lg:grow-0">
-        <a class="block lg:w-[210px] lg:[50px]" href="">
+      <div class="grow flex justify-start items-center w-full lg:w-[210px] lg:[50px] lg:grow-0">
+        <a class="block lg:w-[{{ section.settings.logo_size }}px] lg:[50px]" href="">
           {%- if section.settings.logo_header != blank -%}
             <img class="lg:w-full lg:h-full lg:object-cover lg:object-center block" src="{{ section.settings.logo_header |  image_url: width:master  }}" alt="">
           {%- else -%}
-            {{ shop.name }}
+            {{ shop.name |  upcase }}
           {%- endif -%}         
         </a>
       </div>
-      <div class="hidden lg:border lg:!block lg:max-w-[526px] lg:h-fit bg-red-300">
-        <form class="flex justify-center items-center lg:w-[528px] border bg-green-300">
-          <div >
-            <input type="text" placeholder="Search" class="w-[473px] px-5 h-[45px]">
-          </div>
-          <div class="lg:w-[55px] lg:h-[45px] lg:flex lg:justify-center lg:items-center">
-            {% render 'search-input' %}
-          </div>
-        </form>
-      </div>
-      <div class="grow-0 flex justify-end items-center w-full gap-2 xl:bg-green-600 xl:justify-between">
-        <div class="xl:w-[155px] xl:h-fit xl:border xl:flex xl:justify-center xl:items-center xl:gap-3">
+      <form class="hidden lg:!flex lg:justify-between lg:items-center">
+        <div class="w-[473px] lg:h-[45px] lg:flex lg:justify-center lg:items-center rounded-lg">
+          <input type="text" placeholder="Search" class="lg:outline-none lg:shadow-none lg:rounded-s-lg lg:border lg:w-full lg:h-full lg:pl-5">
+        </div>
+        <div style="background-color: {{ section.settings.header_icon_background_color }}; color: {{ section.settings.header_icon_color }}" class=" lg:flex lg:justify-center lg:items-center rounded-e-lg lg:w-[55px] lg:h-[45px]">
+          {% render 'search-input' %}
+        </div>
+      </form>
+      <div class="grow-0 flex justify-end items-center w-full gap-2 xl:justify-between 2xl:w-[390px]">
+        <div class="xl:w-[155px] xl:h-fit xl:flex xl:justify-center xl:items-center xl:gap-3">
           <div class="hidden lg:!block lg:w-[30px] lg:h-[30px]">
             {% render 'person' %}
           </div>
@@ -35,18 +33,18 @@
             <p class="xl:text-sm xl:text-black xl:font-openSans xl:font-semibold">Log in / Sign in</p>
           </div>
         </div>
-        <div class="w-7 relative flex justify-end items-center lg:w-16 lg:border">
+        <div class="w-7 relative flex justify-end items-center lg:w-16">
           <div class="w-5 h-5 lg:w-[30px] lg:h-[30px]">
             {% render 'stars' %}
           </div>
-          <div class="w-4 h-4 absolute -top-2 -right-1 bg-blue-600 flex justify-center items-center rounded-full text-white text-xs lg:w-[18px] lg:h-[18px]">0</div>
+          <div style="background-color: {{ section.settings.header_icon_background_color }}; color: {{ section.settings.header_icon_color }}" class="w-4 h-4 absolute -top-2 -right-1 flex justify-center items-center rounded-full text-xs lg:w-[18px] lg:h-[18px]">0</div>
         </div>
-        <div class="relative w-7 flex justify-end items-center lg:w-16 lg:border xl:w-[145px] xl:h-fit xl:border xl:flex xl:justify-center xl:items-center xl:gap-3">
+        <div class="relative w-7 flex justify-end items-center lg:w-16 xl:w-[145px] xl:h-fit xl:flex xl:justify-center xl:items-center xl:gap-3">
           <div class="relative">
             <div class="w-5 h-5 lg:w-[30px] lg:h-[30px]">
               {% render 'basket' %}
             </div>
-            <div class="w-4 h-4 absolute -top-2 -right-1 bg-blue-600 flex justify-center items-center rounded-full text-white text-xs lg:w-[18px] lg:h-[18px]">
+            <div style="background-color: {{ section.settings.header_icon_background_color }}; color: {{ section.settings.header_icon_color }}" class="w-4 h-4 absolute -top-2 -right-1 flex justify-center items-center rounded-full text-xs lg:w-[18px] lg:h-[18px]">
               0
             </div>
           </div>
@@ -59,6 +57,7 @@
     </div>
   </div>
 </section>
+
 {% schema %}
 {
   "name": "t:sections.header.name",
@@ -66,133 +65,47 @@
   "max_blocks": 3,
   "settings": [
     {
+      "type": "header",
+      "content": "This is Top Header"
+    },
+    {
       "type": "image_picker",
       "id": "logo_header",
       "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_size",
+      "label": "Logo Size",
+      "unit": "px",
+      "max": 210,
+      "min": 120,
+      "step": 10,
+      "default": 150
+    },
+    {
+      "type": "color_background",
+      "id": "header_icon_background_color",
+      "label": "Background color Search Button",
+      "default": "#000000"
+    },
+    {
+      "type": "color_background",
+      "id": "header_icon_color",
+      "label": "Search Icon Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "This is Bottom Header"
     },
     {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
-    },
-    {
-      "type": "select",
-      "id": "menu_type_desktop",
-      "options": [
-        {
-          "value": "dropdown",
-          "label": "t:sections.header.settings.menu_type_desktop.options__1.label"
-        },
-        {
-          "value": "mega",
-          "label": "t:sections.header.settings.menu_type_desktop.options__2.label"
-        },
-        {
-          "value": "drawer",
-          "label": "t:sections.header.settings.menu_type_desktop.options__3.label"
-        }
-      ],
-      "default": "dropdown",
-      "label": "t:sections.header.settings.menu_type_desktop.label",
-      "info": "t:sections.header.settings.menu_type_desktop.info"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__1.content"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "color_scheme",
-      "id": "menu_color_scheme",
-      "label": "t:sections.header.settings.menu_color_scheme.label",
-      "default": "scheme-1"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__3.content",
-      "info": "t:sections.header.settings.header__4.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_country_selector",
-      "default": false,
-      "label": "t:sections.header.settings.enable_country_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__5.content",
-      "info": "t:sections.header.settings.header__6.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_language_selector",
-      "default": false,
-      "label": "t:sections.header.settings.enable_language_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.mobile_layout.content"
-    },
-    {
-      "type": "select",
-      "id": "mobile_logo_position",
-      "options": [
-        {
-          "value": "center",
-          "label": "t:sections.header.settings.mobile_logo_position.options__1.label"
-        },
-        {
-          "value": "left",
-          "label": "t:sections.header.settings.mobile_logo_position.options__2.label"
-        }
-      ],
-      "default": "center",
-      "label": "t:sections.header.settings.mobile_logo_position.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.spacing"
-    },
-    {
-      "type": "range",
-      "id": "margin_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.header.settings.margin_bottom.label",
-      "default": 0
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 36,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 20
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 36,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 20
     }
+    
   ],
   "blocks": [
     {
