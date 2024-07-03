@@ -1,5 +1,5 @@
 <section class="w-full h-fit">
-  <div class="container h-[84px] flex justify-center items-center flex-row">
+  <div class="container h-16 lg:h-[84px] flex justify-center items-center">
     <div class="w-full flex justify-between items-center gap-4 lg:py-4">
       <div class="w-full block lg:!hidden">
         <div class="w-5 h-5 grow-0 cursor-pointer">
@@ -56,6 +56,28 @@
       </div>
     </div>
   </div>
+</section>
+<section class="w-full h-fit">
+  <div class="container">
+    <div>
+      <div class="w-full flex bg-black h-fit p-4 rounded-sm justify-between items-center md:w-[300px]">
+        <span class="w-6 text-white">{% render 'four-small-cubes' %}</span>
+        <h3 class="text-white uppercase text-xs font-bold">Shop by Departments</h3>
+        <span class="block w-3 text-white">{% render 'arrow-down' %}</span>
+      </div>
+      <div>
+        <p>
+          <a href="#">
+            <img src="{{ 'airdrop.png' |  image_url: width:master }}" alt="">
+            Electronic
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="hidden">
+
+    </div>
+  </div>  
 </section>
 
 {% schema %}
