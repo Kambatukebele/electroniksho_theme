@@ -1,10 +1,11 @@
-<section class="w-full h-fit">
+<section class="w-full h-fit border">
   <div class="container h-16 lg:h-[84px] flex justify-center items-center">
     <div class="w-full flex justify-between items-center gap-4 lg:py-4">
-      <div class="w-full block lg:!hidden">
-        <div class="w-5 h-5 grow-0 cursor-pointer">
-          {% render 'icon-hamburger' %}
-        </div>
+      <div class="w-full block xl:!hidden">
+        <span class="block hamburger w-6 h-6 sm:w-8 sm:h-8 cursor-pointer">{% render 'icon-hamburger' %}
+        </span>
+        <span class="hidden close w-6 h-6 sm:w-8 sm:h-8  cursor-pointer">{% render 'icon-close' %}
+        </span>
       </div>
       <div class="grow flex justify-start items-center w-full lg:w-[210px] lg:[50px] lg:grow-0">
         <a class="block lg:w-[{{ section.settings.logo_size }}px] lg:[50px]" href="">
@@ -15,7 +16,7 @@
           {%- endif -%}         
         </a>
       </div>
-      <form class="hidden lg:!flex lg:justify-between lg:items-center">
+      <form class="hidden xl:!flex xl:justify-between xl:items-center">
         <div class="w-[473px] lg:h-[45px] lg:flex lg:justify-center lg:items-center rounded-lg">
           <input type="text" placeholder="Search" class="lg:outline-none lg:shadow-none lg:rounded-s-lg lg:border lg:w-full lg:h-full lg:pl-5">
         </div>
@@ -23,7 +24,7 @@
           {% render 'search-input' %}
         </div>
       </form>
-      <div class="grow-0 flex justify-end items-center w-full gap-2 xl:justify-between 2xl:w-[390px]">
+      <div class="grow-0 flex justify-end items-center w-full gap-2 xl:justify-between xl:w-[370px]">
         <div class="xl:w-[155px] xl:h-fit xl:flex xl:justify-center xl:items-center xl:gap-3">
           <div class="hidden lg:!block lg:w-[30px] lg:h-[30px]">
             {% render 'person' %}
@@ -34,14 +35,14 @@
           </div>
         </div>
         <div class="w-7 relative flex justify-end items-center lg:w-16">
-          <div class="w-5 h-5 lg:w-[30px] lg:h-[30px]">
+          <div class="w-7 h-7">
             {% render 'stars' %}
           </div>
           <div style="background-color: {{ section.settings.header_icon_background_color }}; color: {{ section.settings.header_icon_color }}" class="w-4 h-4 absolute -top-2 -right-1 flex justify-center items-center rounded-full text-xs lg:w-[18px] lg:h-[18px]">0</div>
         </div>
         <div class="relative w-7 flex justify-end items-center lg:w-16 xl:w-[145px] xl:h-fit xl:flex xl:justify-center xl:items-center xl:gap-3">
           <div class="relative">
-            <div class="w-5 h-5 lg:w-[30px] lg:h-[30px]">
+            <div class="w-7 h-7">
               {% render 'basket' %}
             </div>
             <div style="background-color: {{ section.settings.header_icon_background_color }}; color: {{ section.settings.header_icon_color }}" class="w-4 h-4 absolute -top-2 -right-1 flex justify-center items-center rounded-full text-xs lg:w-[18px] lg:h-[18px]">
@@ -58,28 +59,110 @@
   </div>
 </section>
 <section class="w-full h-fit">
-  <div class="container">
-    <div>
-      <div class="w-full flex bg-black h-fit p-4 rounded-sm justify-between items-center md:w-[300px]">
+  <div class="container py-4 relative">
+    <div class="relative md:flex md:justify-between md:items-center">
+      <div class="w-full flex bg-black h-fit p-4 rounded-sm justify-between items-center shopCategory md:w-[300px]">
         <span class="w-6 text-white">{% render 'four-small-cubes' %}</span>
         <h3 class="text-white uppercase text-xs font-bold">Shop by Departments</h3>
         <span class="block w-3 text-white">{% render 'arrow-down' %}</span>
       </div>
-      <div>
-        <p>
-          <a href="#">
-            <img src="{{ 'airdrop.png' |  image_url: width:master }}" alt="">
-            Electronic
-          </a>
-        </p>
+      <ul class="bg-white w-full flex justify-center ease-in duration-500 items-start z-50 flex-col gap-5 p-4 smd:w-[300px] absolute -top-96 left-0 right-0 navigation xl:static xl:bg-transparent xl:flex-row xl:w-[600px] xl:justify-between">
+        <li class="block text-base text-gray-600 font-semibold"><a href="#">Home</a></li>
+        <li class="block text-base text-gray-600 font-semibold"><a href="#">Collection</a></li>
+        <li class="block text-base text-gray-600 font-semibold"><a href="#">Blog</a></li>
+        <li class="block text-base text-gray-600 font-semibold"><a href="#">About us</a></li>
+      </ul>
+      <div class="hidden md:!block">
+        <div class="md:flex md:justify-center md:items-center md:gap-2">
+          <div class="md:text-base">
+            {% render 'telephone' %}
+          </div>
+          <div class="">
+            <span class="md:text-xs md:font-normal md:uppercase md:block md:text-gray-500">NEED HELP ?</span>
+            <span class="md:text-sm md:font-semibold md:block md:text-gray-600">+01 0123 456 789</span>
+          </div>         
+        </div>
       </div>
     </div>
-    <div class="hidden">
-
+    <div class="bg-white absolute top-[68px] -left-[2450px] w-[290px] md:w-[300px] px-4 flex justify-center ease-in duration-500 items-start z-30 flex-col gap-5 py-4 border categories">
+      <p class="w-full block px-4">
+        <a class="flex justify-between items-center gap-4" href="#">
+          <img width="20px" height="20px" class="block" src="{{ 'airdrop.png' |  asset_url  }}" alt="">
+          <span class="block text-sm text-gray-600 font-semibold">Electronic</span>
+          <span class="block w-3 text-black">{% render 'arrow-down' %}</span>
+        </a>
+      </p>
+      <p class="w-full block px-4">
+        <a class="flex justify-between items-center gap-4" href="#">
+          <img width="20px" height="20px" class="block" src="{{ 'airdrop.png' |  asset_url  }}" alt="">
+          <span class="block text-sm text-gray-600 font-semibold">Electronic</span>
+          <span class="block w-3 text-black">{% render 'arrow-down' %}</span>
+        </a>
+      </p>
+      <p class="w-full block px-4">
+        <a class="flex justify-between items-center gap-4" href="#">
+          <img width="20px" height="20px" class="block" src="{{ 'airdrop.png' |  asset_url  }}" alt="">
+          <span class="block text-sm text-gray-600 font-semibold">Electronic</span>
+          <span class="block w-3 text-black">{% render 'arrow-down' %}</span>
+        </a>
+      </p>
+      <p class="w-full block px-4">
+        <a class="flex justify-between items-center gap-4" href="#">
+          <img width="20px" height="20px" class="block" src="{{ 'airdrop.png' |  asset_url  }}" alt="">
+          <span class="block text-sm text-gray-600 font-semibold">Electronic</span>
+          <span class="block w-3 text-black">{% render 'arrow-down' %}</span>
+        </a>
+      </p>        
     </div>
   </div>  
 </section>
 
+<script>
+  const hamburgerMenu = document.getElementsByClassName('hamburger')[0];
+  const closeMenu = document.getElementsByClassName('close')[0];
+  const navigation = document.getElementsByClassName('navigation')[0];
+  const shopCategory = document.getElementsByClassName('shopCategory')[0];
+  const categories = document.getElementsByClassName('categories')[0];
+
+  hamburgerMenu.addEventListener('click', () =>{
+    navigation.classList.remove('-top-96');
+    navigation.classList.add('top-12');
+    hamburgerMenu.classList.remove('block');
+    hamburgerMenu.classList.add('hidden');
+    closeMenu.classList.remove('hidden');
+    closeMenu.classList.add('block');
+  });
+  closeMenu.addEventListener('click', () =>{
+    navigation.classList.remove('top-12');
+    navigation.classList.add('-top-96');  
+    hamburgerMenu.classList.remove('hidden');  
+    hamburgerMenu.classList.add('block');
+    closeMenu.classList.remove('block');
+    closeMenu.classList.add('hidden');
+  });
+
+  //Shop Category
+  shopCategory.addEventListener('click', () =>{
+    // left-[10px]
+    if (categories.classList.contains('-left-[2450px]')) {
+      categories.classList.remove('-left-[2450px]');
+      categories.classList.add('left-3')
+      categories.classList.add('sm:left-5')
+      categories.classList.add('lg:left-[39px]')
+      categories.classList.add('xl:left-[49px]')
+      categories.classList.add('2xl:left-[59px]')
+      // lg:left-[39px] xl:left-[49px] 2xl:left-[59px]
+    }else{
+      categories.classList.add('-left-[2450px]');
+      categories.classList.remove('left-3')
+      categories.classList.remove('sm:left-5')
+      categories.classList.remove('lg:left-[39px]')
+      categories.classList.remove('xl:left-[49px]')
+      categories.classList.remove('2xl:left-[59px]')
+    }
+    
+  })
+</script>
 {% schema %}
 {
   "name": "t:sections.header.name",
