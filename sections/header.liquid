@@ -20,29 +20,37 @@
         <div class="w-[473px] lg:h-[45px] lg:flex lg:justify-center lg:items-center rounded-lg">
           <input type="text" placeholder="Search" class="lg:outline-none lg:shadow-none lg:rounded-s-lg lg:border lg:w-full lg:h-full lg:pl-5">
         </div>
-        <div style="background-color: {{ section.settings.header_icon_background_color }}; color: {{ section.settings.header_icon_color }}" class=" lg:flex lg:justify-center lg:items-center rounded-e-lg lg:w-[55px] lg:h-[45px]">
+        <div style="background-color: {{ section.settings.header_icon_background_color }}; color: {{ section.settings.header_icon_color }}" class=" lg:flex lg:justify-center lg:items-center rounded-e-lg lg:w-[55px] lg:h-[45px] lg:cursor-pointer">
           {% render 'search-input' %}
         </div>
       </form>
       <div class="grow-0 flex justify-end items-center w-full gap-2 xl:justify-between xl:w-[370px]">
         <div class="xl:w-[155px] xl:h-fit xl:flex xl:justify-center xl:items-center xl:gap-3">
-          <div class="hidden lg:!block lg:w-[30px] lg:h-[30px]">
+          <div class="hidden lg:!block lg:w-[24px] lg:h-[24px]">
             {% render 'person' %}
           </div>
           <div class="hidden xl:!block">
-            <p class="xl:text-xs xl:text-black xl:font-normal xl:uppercase">Account</p>
-            <p class="xl:text-sm xl:text-black xl:font-openSans xl:font-semibold">Log in / Sign in</p>
+            <p class="xl:text-xs xl:text-gray-700 xl:font-normal xl:uppercase">
+              Account
+            </p>
+            <p class="xl:text-sm xl:text-gray-700 xl:font-openSans xl:font-semibold">
+              <a href="#">Log in </a>
+              <span>/</span>
+              <a href="#">Sign in</a>
+            </p>
           </div>
         </div>
-        <div class="w-7 relative flex justify-end items-center lg:w-16">
-          <div class="w-7 h-7">
+        <div class="w-6 relative flex justify-end items-center lg:w-16">
+          <div class="w-6 h-6">
             {% render 'stars' %}
           </div>
-          <div style="background-color: {{ section.settings.header_icon_background_color }}; color: {{ section.settings.header_icon_color }}" class="w-4 h-4 absolute -top-2 -right-1 flex justify-center items-center rounded-full text-xs lg:w-[18px] lg:h-[18px]">0</div>
+          <div style="background-color: {{ section.settings.header_icon_background_color }}; color: {{ section.settings.header_icon_color }}" class="w-4 h-4 absolute -top-2 -right-1 flex justify-center items-center rounded-full text-xs lg:w-[18px] lg:h-[18px]">
+            0
+          </div>
         </div>
-        <div class="relative w-7 flex justify-end items-center lg:w-16 xl:w-[145px] xl:h-fit xl:flex xl:justify-center xl:items-center xl:gap-3">
+        <div class="relative w-6 flex justify-end items-center lg:w-16 xl:w-[145px] xl:h-fit xl:flex xl:justify-center xl:items-center xl:gap-3">
           <div class="relative">
-            <div class="w-7 h-7">
+            <div class="w-6 h-6">
               {% render 'basket' %}
             </div>
             <div style="background-color: {{ section.settings.header_icon_background_color }}; color: {{ section.settings.header_icon_color }}" class="w-4 h-4 absolute -top-2 -right-1 flex justify-center items-center rounded-full text-xs lg:w-[18px] lg:h-[18px]">
@@ -50,8 +58,8 @@
             </div>
           </div>
           <div class="hidden xl:!block">
-            <p class="xl:text-xs xl:text-black xl:font-normal xl:uppercase">Total</p>
-            <p class="xl:text-sm xl:text-black xl:font-openSans xl:font-semibold">$0.00USD</p>
+            <p class="xl:text-xs xl:text-gray-700 xl:font-normal xl:uppercase">Total</p>
+            <p class="xl:text-sm xl:text-gray-700 xl:font-openSans xl:font-semibold">$0.00USD</p>
           </div>
         </div>
       </div>
@@ -61,16 +69,47 @@
 <section class="w-full h-fit">
   <div class="container py-4 relative">
     <div class="relative md:flex md:justify-between md:items-center">
-      <div class="w-full flex bg-black h-fit p-4 rounded-sm justify-between items-center shopCategory md:w-[300px]">
+      <div style="background-color: {{ section.settings.header_icon_background_color }}; color: {{ section.settings.header_icon_color }}" class="w-full flex h-fit p-4 rounded-sm justify-between items-center shopCategory md:w-[300px] cursor-pointer">
         <span class="w-6 text-white">{% render 'four-small-cubes' %}</span>
-        <h3 class="text-white uppercase text-xs font-bold">Shop by Departments</h3>
+        <h3 class="text-white uppercase text-xs font-bold">{{ section.settings.menu_selector_id }}</h3>
         <span class="block w-3 text-white">{% render 'arrow-down' %}</span>
+        {% comment %} Sub Menu {% endcomment %}
+        <div class="bg-white absolute w-full md:w-[300px] top-[52px] -left-[2450px]  px-4 flex justify-center ease-in duration-300 items-start z-30 flex-col gap-5 py-4 border categories">
+          <p class="w-full block px-4">
+            <a class="flex justify-between items-center gap-4" href="#">
+              <img width="20px" height="20px" class="block" src="{{ 'airdrop.png' |  asset_url  }}" alt="">
+              <span class="block text-sm text-gray-600 font-semibold">Electronic</span>
+              <span class="block w-3 text-black">{% render 'arrow-down' %}</span>
+            </a>
+          </p>
+          <p class="w-full block px-4">
+            <a class="flex justify-between items-center gap-4" href="#">
+              <img width="20px" height="20px" class="block" src="{{ 'airdrop.png' |  asset_url  }}" alt="">
+              <span class="block text-sm text-gray-600 font-semibold">Electronic</span>
+              <span class="block w-3 text-black">{% render 'arrow-down' %}</span>
+            </a>
+          </p>
+          <p class="w-full block px-4">
+            <a class="flex justify-between items-center gap-4" href="#">
+              <img width="20px" height="20px" class="block" src="{{ 'airdrop.png' |  asset_url  }}" alt="">
+              <span class="block text-sm text-gray-600 font-semibold">Electronic</span>
+              <span class="block w-3 text-black">{% render 'arrow-down' %}</span>
+            </a>
+          </p>
+          <p class="w-full block px-4">
+            <a class="flex justify-between items-center gap-4" href="#">
+              <img width="20px" height="20px" class="block" src="{{ 'airdrop.png' |  asset_url  }}" alt="">
+              <span class="block text-sm text-gray-600 font-semibold">Electronic</span>
+              <span class="block w-3 text-black">{% render 'arrow-down' %}</span>
+            </a>
+          </p>        
+        </div>
+        {% comment %} END Sub Menu {% endcomment %}
       </div>
       <ul class="bg-white w-full flex justify-center ease-in duration-500 items-start z-50 flex-col gap-5 p-4 smd:w-[300px] absolute -top-96 left-0 right-0 navigation xl:static xl:bg-transparent xl:flex-row xl:w-[600px] xl:justify-between">
-        <li class="block text-base text-gray-600 font-semibold"><a href="#">Home</a></li>
-        <li class="block text-base text-gray-600 font-semibold"><a href="#">Collection</a></li>
-        <li class="block text-base text-gray-600 font-semibold"><a href="#">Blog</a></li>
-        <li class="block text-base text-gray-600 font-semibold"><a href="#">About us</a></li>
+        {% for menuList in linklists.main-menu.links %}
+          <li class="block text-base text-gray-700 font-normal"><a href="{{ menuList.url }}">{{ menuList.title }}</a></li>
+        {% endfor %}      
       </ul>
       <div class="hidden md:!block">
         <div class="md:flex md:justify-center md:items-center md:gap-2">
@@ -84,36 +123,7 @@
         </div>
       </div>
     </div>
-    <div class="bg-white absolute top-[68px] -left-[2450px] w-[290px] md:w-[300px] px-4 flex justify-center ease-in duration-500 items-start z-30 flex-col gap-5 py-4 border categories">
-      <p class="w-full block px-4">
-        <a class="flex justify-between items-center gap-4" href="#">
-          <img width="20px" height="20px" class="block" src="{{ 'airdrop.png' |  asset_url  }}" alt="">
-          <span class="block text-sm text-gray-600 font-semibold">Electronic</span>
-          <span class="block w-3 text-black">{% render 'arrow-down' %}</span>
-        </a>
-      </p>
-      <p class="w-full block px-4">
-        <a class="flex justify-between items-center gap-4" href="#">
-          <img width="20px" height="20px" class="block" src="{{ 'airdrop.png' |  asset_url  }}" alt="">
-          <span class="block text-sm text-gray-600 font-semibold">Electronic</span>
-          <span class="block w-3 text-black">{% render 'arrow-down' %}</span>
-        </a>
-      </p>
-      <p class="w-full block px-4">
-        <a class="flex justify-between items-center gap-4" href="#">
-          <img width="20px" height="20px" class="block" src="{{ 'airdrop.png' |  asset_url  }}" alt="">
-          <span class="block text-sm text-gray-600 font-semibold">Electronic</span>
-          <span class="block w-3 text-black">{% render 'arrow-down' %}</span>
-        </a>
-      </p>
-      <p class="w-full block px-4">
-        <a class="flex justify-between items-center gap-4" href="#">
-          <img width="20px" height="20px" class="block" src="{{ 'airdrop.png' |  asset_url  }}" alt="">
-          <span class="block text-sm text-gray-600 font-semibold">Electronic</span>
-          <span class="block w-3 text-black">{% render 'arrow-down' %}</span>
-        </a>
-      </p>        
-    </div>
+    
   </div>  
 </section>
 
@@ -143,22 +153,12 @@
 
   //Shop Category
   shopCategory.addEventListener('click', () =>{
-    // left-[10px]
     if (categories.classList.contains('-left-[2450px]')) {
       categories.classList.remove('-left-[2450px]');
-      categories.classList.add('left-3')
-      categories.classList.add('sm:left-5')
-      categories.classList.add('lg:left-[39px]')
-      categories.classList.add('xl:left-[49px]')
-      categories.classList.add('2xl:left-[59px]')
-      // lg:left-[39px] xl:left-[49px] 2xl:left-[59px]
+      categories.classList.add('left-0')
     }else{
       categories.classList.add('-left-[2450px]');
-      categories.classList.remove('left-3')
-      categories.classList.remove('sm:left-5')
-      categories.classList.remove('lg:left-[39px]')
-      categories.classList.remove('xl:left-[49px]')
-      categories.classList.remove('2xl:left-[59px]')
+      categories.classList.remove('left-0')
     }
     
   })
@@ -189,15 +189,15 @@
       "default": 150
     },
     {
-      "type": "color_background",
+      "type": "color",
       "id": "header_icon_background_color",
-      "label": "Background color Search Button",
+      "label": "Search, Menu and Icon Background color",
       "default": "#000000"
     },
     {
-      "type": "color_background",
+      "type": "color",
       "id": "header_icon_color",
-      "label": "Search Icon Color",
+      "label": "Search, Menu and Icon Text Color",
       "default": "#ffffff"
     },
     {
@@ -205,12 +205,17 @@
       "content": "This is Bottom Header"
     },
     {
+      "type": "text",
+      "id": "menu_selector_id",
+      "default": "Shop by Departments",
+      "label": "Menu Selector Text"
+    },
+    {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
-    }
-    
+    }    
   ],
   "blocks": [
     {
