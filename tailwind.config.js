@@ -20,6 +20,10 @@ export default {
       fontFamily: {
         openSans: ["Open Sans", "sans-serif"],
       },
+      // backgroundImage: {
+      //   slideOne: "url('/assets/sliderOne.jpg')",
+      //   slideTwo: "url('/assets/sliderTwo.jpg')",
+      // },
     },
   },
   plugins: [
