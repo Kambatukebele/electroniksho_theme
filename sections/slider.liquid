@@ -1,0 +1,159 @@
+<section class="w-full h-fit">
+    <div class="container mx-auto h-fit">
+        {% comment %} Slider 1 {% endcomment %}
+        <div class="w-full overflow-x-auto flex slider-container no-scrollbar h-fit">
+            {% for block in section.blocks %}
+                {{ block |  json }}
+                {% comment %} {%- case block.type -%}
+                  {%- when "slider" -%}
+                    <h1>{{ block.settings.slider_heading_id }}</h1>
+                {% endcase %} {% endcomment %}
+              {% endfor %}
+            {% comment %} <div style="background-image: url('assets/sliderOne.jpg'); background-position:center; background-size:cover; background-repeat: no-repeat" class="w-full {{ section.settings.slider_hight_mobile_id }} {{ section.settings.slider_hight_desktop_id }}  flex-shrink-0 rounded-2xl relative delay-150 ease-in-out p-4">
+                <div class="w-full h-fit absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-start gap-4 p-4 lg:pl-10">
+                    <h6 class="text-sm font-normal text-white">Top best season sale!</h6>
+                    <h1 class="font-semibold text-white text-4xl sm:w-[350px] lg:text-5xl lg:w-[600px]">New Generation Apple IPhone 7 yes yes kmab tukebele</h1>
+                    <p class="font-normal text-white w-72 sm:w-[400px]">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum ad quam sint ducimus.
+                    </p>
+                    <button class="px-4 py-2 bg-white rounded-lg text-base font-medium">
+                        <a class="font-normal" href="#">Shop now</a>
+                    </button>
+                </div>
+            </div> {% endcomment %}
+        </div>      
+    </div>
+</section>
+
+<script>
+   window.addEventListener('load', () => {
+        let direction = 1; // 1 means scroll to the right, -1 means scroll to the left
+        const sliderContainer = document.querySelector('.slider-container');
+        const slideWidth = window.innerWidth;
+
+        setInterval(() => {
+            sliderContainer.scrollTo({
+                left: direction === 1 ? slideWidth : 0,
+                behavior: 'smooth'
+            });
+            direction *= -1; // Toggle direction
+        }, 5000); // Scroll every 5 seconds
+    });
+</script>
+
+{% schema %}
+{
+    "name": "Slider",
+    "settings": [
+        {
+            "type": "header",
+            "content": "Mobile Layout"
+        },
+        {
+            "type": "select",
+            "id": "slider_hight_mobile_id",
+            "label": "Select Height on Mobile",
+            "options": [
+                {
+                    "label": "Small",
+                    "value": "h-[300px]"
+                },
+                {
+                    "label": "medium",
+                    "value": "h-[350px]"
+                },
+                {
+                    "label": "large",
+                    "value": "h-[400px]"
+                }
+            ], 
+            "default": "h-[350px]"     
+        },
+        {
+            "type": "header",
+            "content": "Desktop Layout"
+        },
+        {
+            "type": "select",
+            "id": "slider_hight_desktop_id",
+            "label": "Hight Desktop",
+            "options": [
+                {
+                    "value": "lg:h-[450px]",
+                    "label": "Normal"
+                },
+                {
+                    "value": "lg:h-[500px]",
+                    "label": "Medium"
+                },
+                {
+                    "value": "lg:h-[550px]",
+                    "label": "Large"
+                }
+            ],
+            "default": "lg:h-[450px]"
+        },
+        {
+            "type": "checkbox",
+            "id": "slider_autorotate_id",
+            "label": "Auto Rotate",
+            "info": "active or deactive the autorotate slider",
+            "default": false
+        },
+        {
+            "type": "range",
+            "id": "slider_autorotate_second_id",
+            "info": "is per second",
+            "label": "Add seconds",
+            "min": 5,
+            "max": 10,
+            "step": 1,
+            "unit": "s",
+            "default": 5
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Slider image",
+            "type": "slider",
+            "limit": 3,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "slider_image_id",
+                    "label": "Slider Image"
+                },
+                {
+                    "type": "text",
+                    "id": "slider_subHeading_id",
+                    "label": "Sub Heading",
+                    "default": "Welcome Subheading"
+                },
+                {
+                    "type": "text",
+                    "id": "slider_heading_id",
+                    "label": "Heading",
+                    "default": "I am Welcoming you to our store"
+                },
+                {
+                    "type": "inline_richtext",
+                    "id": "slider_paragraph_id",
+                    "label": "Paragraph",
+                    "default": "I am welcoming you to our paragraph rich text"
+                },
+                {
+                    "type": "text",
+                    "id": "slider_button_id",
+                    "label": "Button Text",
+                    "default": "Shop now"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Slider"
+        }
+    ]
+}
+{% endschema %}

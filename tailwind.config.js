@@ -20,15 +20,37 @@ export default {
       fontFamily: {
         openSans: ["Open Sans", "sans-serif"],
       },
-      // backgroundImage: {
-      //   slideOne: "url('/assets/sliderOne.jpg')",
-      //   slideTwo: "url('/assets/sliderTwo.jpg')",
-      // },
+      // Add custom utilities to extend the default Tailwind CSS classes
+      scrollbar: {
+        none: {
+          /* Hide scrollbar for Chrome, Safari, and Opera */
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+          /* Hide scrollbar for IE, Edge, and Firefox */
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+        },
+      },
     },
   },
   plugins: [
     remToPxPlugin({
       baseFontSize: 16,
     }),
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".no-scrollbar": {
+          /* Hide scrollbar for Chrome, Safari, and Opera */
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+          /* Hide scrollbar for IE, Edge, and Firefox */
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+        },
+      };
+      addUtilities(newUtilities, ["responsive", "hover"]);
+    },
   ],
 };
