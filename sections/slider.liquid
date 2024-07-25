@@ -3,27 +3,30 @@
         {% comment %} Slider 1 {% endcomment %}
         <div class="w-full overflow-x-auto flex slider-container no-scrollbar h-fit">
             {% for block in section.blocks %}
-                {{ block |  json }}
-                {% comment %} {%- case block.type -%}
-                  {%- when "slider" -%}
-                    <h1>{{ block.settings.slider_heading_id }}</h1>
-                {% endcase %} {% endcomment %}
-              {% endfor %}
-            {% comment %} <div style="background-image: url('assets/sliderOne.jpg'); background-position:center; background-size:cover; background-repeat: no-repeat" class="w-full {{ section.settings.slider_hight_mobile_id }} {{ section.settings.slider_hight_desktop_id }}  flex-shrink-0 rounded-2xl relative delay-150 ease-in-out p-4">
-                <div class="w-full h-fit absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-start gap-4 p-4 lg:pl-10">
-                    <h6 class="text-sm font-normal text-white">Top best season sale!</h6>
-                    <h1 class="font-semibold text-white text-4xl sm:w-[350px] lg:text-5xl lg:w-[600px]">New Generation Apple IPhone 7 yes yes kmab tukebele</h1>
-                    <p class="font-normal text-white w-72 sm:w-[400px]">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea ipsum ad quam sint ducimus.
-                    </p>
-                    <button class="px-4 py-2 bg-white rounded-lg text-base font-medium">
-                        <a class="font-normal" href="#">Shop now</a>
-                    </button>
-                </div>
-            </div> {% endcomment %}
+                {% case block.type %}
+                    {% when "slider" %}
+                        <div style="background-image: url('{{ block.settings.slider_image_id |  image_url }}'); background-position:center; background-size:cover; background-repeat: no-repeat" class="w-full {{ section.settings.slider_hight_mobile_id }} {{ section.settings.slider_hight_desktop_id }}  flex-shrink-0 rounded-2xl relative delay-150 ease-in-out p-4">
+                            <div class="w-full h-fit absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col justify-center items-start gap-4 p-4 lg:pl-10">
+                                <h6 style="color: {{ block.settings.slider_subHeading_color_text_id }}" class="text-sm font-normal text-white {{ block.settings.slider_subHeading_textTransform_id }}">{{ block.settings.slider_subHeading_id }}</h6>
+                                <h1 style="color: {{ block.settings.slider_Heading_color_text_id }};" class="font-semibold text-white {{ block.settings.slider_Heading_textTransform_id }} {{ block.settings.slider_heading_mobile_size_id }} {{ block.settings.slider_heading_desktop_size_id }}  sm:w-[350px] lg:text-5xl lg:w-[600px]">
+                                    {{ block.settings.slider_heading_id }}
+                                </h1>
+                                <p class="font-normal text-white w-72 sm:w-[400px] text-base">
+                                    {{ block.settings.slider_paragraph_id }}
+                                </p>
+                                <button class="px-4 py-2 bg-white rounded-lg text-base font-medium">
+                                    <a class="font-normal" href="#">
+                                        {{ block.settings.slider_button_id }}
+                                    </a>
+                                </button>
+                            </div>
+                        </div>                         
+                {% endcase %}
+            {% endfor %}
         </div>      
     </div>
 </section>
+{% comment %} {{ 'lifestyle-2' | placeholder_svg_tag }} {% endcomment %}
 
 <script>
    window.addEventListener('load', () => {
@@ -116,7 +119,7 @@
         {
             "name": "Slider image",
             "type": "slider",
-            "limit": 3,
+            "limit": 2,
             "settings": [
                 {
                     "type": "image_picker",
@@ -130,10 +133,106 @@
                     "default": "Welcome Subheading"
                 },
                 {
+                    "type": "select",
+                    "id": "slider_subHeading_textTransform_id",
+                    "label": "Sub Heading Text Transform",
+                    "options": [
+                        {
+                            "value": "normal-case",
+                            "label": "none"
+                        },
+                        {
+                            "value": "lowercase",
+                            "label": "Lowercase"
+                        },
+                        {
+                            "value": "capitalize",
+                            "label": "Capitalize"
+                        },
+                        {
+                            "value": "uppercase",
+                            "label": "Uppercase"
+                        }
+                    ],
+                    "default": "normal-case"
+                },
+                {
+                    "type": "color",
+                    "id": "slider_subHeading_color_text_id",
+                    "label": "Sub Heading Color",
+                    "default": "#ffffff"
+                },
+                {
                     "type": "text",
                     "id": "slider_heading_id",
                     "label": "Heading",
                     "default": "I am Welcoming you to our store"
+                },
+                {
+                    "type": "select",
+                    "id": "slider_Heading_textTransform_id",
+                    "label": "Heading Text Transform",
+                    "options": [
+                        {
+                            "value": "lowercase",
+                            "label": "Lowercase"
+                        },
+                        {
+                            "value": "capitalize",
+                            "label": "Capitalize"
+                        },
+                        {
+                            "value": "uppercase",
+                            "label": "Uppercase"
+                        }
+                    ],
+                    "default": "lowercase"
+                },
+                {
+                    "type": "select",
+                    "id": "slider_heading_mobile_size_id",
+                    "label": "Mobile Heading Size",
+                    "options": [
+                        {
+                            "value": "text-2xl",
+                            "label": "24px"
+                        },
+                        {
+                            "value": "text-3xl",
+                            "label": "30px"
+                        },
+                        {
+                            "value": "text-4xl",
+                            "label": "36"
+                        }
+                    ],
+                    "default": "text-2xl"
+                },
+                {
+                    "type": "select",
+                    "id": "slider_heading_desktop_size_id",
+                    "label": "Desktop Heading Size",
+                    "options": [
+                        {
+                            "value": "lg:text-5xl",
+                            "label": "48px"
+                        },
+                        {
+                            "value": "lg:text-6xl",
+                            "label": "60px"
+                        },
+                        {
+                            "value": "lg:text-7xl",
+                            "label": "72"
+                        }
+                    ],
+                    "default": "lg:text-5xl"
+                },
+                {
+                    "type": "color",
+                    "id": "slider_Heading_color_text_id",
+                    "label": "Heading Color",
+                    "default": "#ffffff"
                 },
                 {
                     "type": "inline_richtext",
@@ -146,6 +245,11 @@
                     "id": "slider_button_id",
                     "label": "Button Text",
                     "default": "Shop now"
+                },
+                {
+                    "type": "url",
+                    "id": "slider_button_url_id",
+                    "label": "Button URL"
                 }
             ]
         }

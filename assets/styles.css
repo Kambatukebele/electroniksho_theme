@@ -2148,6 +2148,16 @@ video {
   line-height: 16px;
 }
 
+.text-2xl{
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.text-3xl{
+  font-size: 30px;
+  line-height: 36px;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -3027,6 +3037,16 @@ video {
 
   .lg\:text-5xl{
     font-size: 48px;
+    line-height: 1;
+  }
+
+  .lg\:text-6xl{
+    font-size: 60px;
+    line-height: 1;
+  }
+
+  .lg\:text-7xl{
+    font-size: 72px;
     line-height: 1;
   }
 

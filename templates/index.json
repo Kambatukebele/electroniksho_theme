@@ -2,9 +2,51 @@
   "sections": {
     "slider_3ygaYf": {
       "type": "slider",
+      "blocks": {
+        "slider_epnNke": {
+          "type": "slider",
+          "settings": {
+            "slider_image_id": "shopify:\/\/shop_images\/L01-slider-01.webp",
+            "slider_subHeading_id": "Top best season sale",
+            "slider_subHeading_textTransform_id": "uppercase",
+            "slider_subHeading_color_text_id": "#f1ce09",
+            "slider_heading_id": "New Laptop Users Huawei Matebook",
+            "slider_Heading_textTransform_id": "capitalize",
+            "slider_heading_mobile_size_id": "text-4xl",
+            "slider_heading_desktop_size_id": "lg:text-7xl",
+            "slider_Heading_color_text_id": "#ffffff",
+            "slider_paragraph_id": "Discover our new catalogue",
+            "slider_button_id": "Shop now",
+            "slider_button_url_id": ""
+          }
+        },
+        "slider_UFx4MC": {
+          "type": "slider",
+          "settings": {
+            "slider_image_id": "shopify:\/\/shop_images\/L02-slider-02.webp",
+            "slider_subHeading_id": "Top best season",
+            "slider_subHeading_textTransform_id": "uppercase",
+            "slider_subHeading_color_text_id": "#f1ce09",
+            "slider_heading_id": "New Generation Apple Iphone 15 Pro Max",
+            "slider_Heading_textTransform_id": "capitalize",
+            "slider_heading_mobile_size_id": "text-4xl",
+            "slider_heading_desktop_size_id": "lg:text-7xl",
+            "slider_Heading_color_text_id": "#ffffff",
+            "slider_paragraph_id": "Discover our new list of apple arrivals",
+            "slider_button_id": "Shop now",
+            "slider_button_url_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "slider_epnNke",
+        "slider_UFx4MC"
+      ],
       "settings": {
         "slider_hight_mobile_id": "h-[400px]",
-        "slider_hight_desktop_id": "lg:h-[500px]"
+        "slider_hight_desktop_id": "lg:h-[500px]",
+        "slider_autorotate_id": false,
+        "slider_autorotate_second_id": 5
       }
     },
     "slideshow_wkwtAz": {
