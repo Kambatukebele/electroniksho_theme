@@ -2128,6 +2128,16 @@ video {
   font-family: Open Sans, sans-serif;
 }
 
+.text-2xl{
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.text-3xl{
+  font-size: 30px;
+  line-height: 36px;
+}
+
 .text-4xl{
   font-size: 36px;
   line-height: 40px;
@@ -2146,16 +2156,6 @@ video {
 .text-xs{
   font-size: 12px;
   line-height: 16px;
-}
-
-.text-2xl{
-  font-size: 24px;
-  line-height: 32px;
-}
-
-.text-3xl{
-  font-size: 30px;
-  line-height: 36px;
 }
 
 .font-bold{
