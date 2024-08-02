@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "slider_3ygaYf": {
@@ -84,10 +93,16 @@
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
       }
+    },
+    "collection_second_Wc7yjP": {
+      "type": "collection-second",
+      "settings": {
+      }
     }
   },
   "order": [
     "slider_3ygaYf",
-    "slideshow_wkwtAz"
+    "slideshow_wkwtAz",
+    "collection_second_Wc7yjP"
   ]
 }
