@@ -1,0 +1,67 @@
+<section class="w-screen overflow-hidden h-16 flex justify-center items-center">
+    <div class="no-scrollbar animate-scroll w-screen whitespace-nowrap flex gap-2">
+        <div class="flex-none uppercase w-auto py-1 px-4">
+            Get a $50 Gift Card on Purchase of $1000
+        </div>
+        <div class="flex-none uppercase w-auto py-1 px-4">
+            Get a $50 Gift Card on Purchase of $2000
+        </div>
+        <div class="flex-none uppercase w-auto py-1 px-4">
+            Get a $50 Gift Card on Purchase of $3000
+        </div>
+        <div class="flex-none uppercase w-auto py-1 px-4">
+            Get a $50 Gift Card on Purchase of $4000
+        </div>
+        <div class="flex-none uppercase w-auto py-1 px-4">
+            Get a $50 Gift Card on Purchase of $5000
+        </div>
+        <div class="flex-none uppercase w-auto py-1 px-4">
+            Get a $50 Gift Card on Purchase of $6000
+        </div>
+        <div class="flex-none uppercase w-auto py-1 px-4">
+            Get a $50 Gift Card on Purchase of $7000
+        </div>
+        <div class="flex-none uppercase w-auto py-1 px-4">
+            Get a $50 Gift Card on Purchase of $1000
+        </div>
+        <div class="flex-none uppercase w-auto py-1 px-4">
+            Get a $50 Gift Card on Purchase of $1000
+        </div>
+        <div class="flex-none uppercase w-auto py-1 px-4">
+            Get a $50 Gift Card on Purchase of $1000
+        </div>
+    </div>
+</section>
+{% style %}
+    .no-scrollbar::-webkit-scrollbar{
+        display:none;
+    }
+    .no-scrollbar{
+        -ms-overflow-style:none; 
+        scrollbar-width:none
+    }
+{% endstyle %}
+{% schema %}
+{
+    "name": "Scrolling Content",
+    "settings": [
+        {
+            "type": "color_background",
+            "id": "scrolling_color_bg_id",
+            "label": "Choose Your Background Color",
+            "default": "#000000"
+        },
+        {
+            "type": "color",
+            "id": "scrolling_color_text_id",
+            "label": "Text Color",
+            "default": "#ffffff"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Scrolling Content"
+        }
+    ]
+}
+{% endschema %}
