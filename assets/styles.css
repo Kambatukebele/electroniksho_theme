@@ -917,10 +917,6 @@ video {
   height: 100%;
 }
 
-.h-28{
-  height: 112px;
-}
-
 .w-3{
   width: 12px;
 }
@@ -953,16 +949,16 @@ video {
   width: weird-and-invalid;
 }
 
+.w-auto{
+  width: auto;
+}
+
 .w-full{
   width: 100%;
 }
 
 .w-screen{
   width: 100vw;
-}
-
-.w-auto{
-  width: auto;
 }
 
 .max-w-\[270px\]{
@@ -2013,11 +2009,6 @@ video {
 .bg-\[rgb\(255\2c 0\2c 0\)\]{
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-blue-400{
-  --tw-bg-opacity: 1;
-  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
 
 .bg-gray-100{

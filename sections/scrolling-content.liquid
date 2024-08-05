@@ -1,35 +1,21 @@
-<section class="w-screen overflow-hidden h-16 flex justify-center items-center">
+<section style="background: {{ section.settings.scrolling_color_bg_id }}; color: {{ section.settings.scroll_title_color_id }}" class="w-screen overflow-hidden h-16 flex justify-center items-center">
     <div class="no-scrollbar animate-scroll w-screen whitespace-nowrap flex gap-2">
-        <div class="flex-none uppercase w-auto py-1 px-4">
-            Get a $50 Gift Card on Purchase of $1000
-        </div>
-        <div class="flex-none uppercase w-auto py-1 px-4">
-            Get a $50 Gift Card on Purchase of $2000
-        </div>
-        <div class="flex-none uppercase w-auto py-1 px-4">
-            Get a $50 Gift Card on Purchase of $3000
-        </div>
-        <div class="flex-none uppercase w-auto py-1 px-4">
-            Get a $50 Gift Card on Purchase of $4000
-        </div>
-        <div class="flex-none uppercase w-auto py-1 px-4">
-            Get a $50 Gift Card on Purchase of $5000
-        </div>
-        <div class="flex-none uppercase w-auto py-1 px-4">
-            Get a $50 Gift Card on Purchase of $6000
-        </div>
-        <div class="flex-none uppercase w-auto py-1 px-4">
-            Get a $50 Gift Card on Purchase of $7000
-        </div>
-        <div class="flex-none uppercase w-auto py-1 px-4">
-            Get a $50 Gift Card on Purchase of $1000
-        </div>
-        <div class="flex-none uppercase w-auto py-1 px-4">
-            Get a $50 Gift Card on Purchase of $1000
-        </div>
-        <div class="flex-none uppercase w-auto py-1 px-4">
-            Get a $50 Gift Card on Purchase of $1000
-        </div>
+        {% if section.blocks.size > 0 %}
+            {% for scrollTitle in section.blocks %}
+                {% case scrollTitle.type %}
+                    {% when "scroll_title" %}
+                        <div class="flex-none uppercase w-auto py-1 px-4">
+                            {{ scrollTitle.settings.scroll_title_id }}
+                        </div>
+                {% endcase %}
+            {% endfor %}
+            {% else %}
+                {% for i in (1..10) %}
+                    <div class="flex-none uppercase w-auto py-1 px-4">
+                        Get a $50 Gift Card on Purchase of $1000
+                    </div>
+                {% endfor %}
+        {% endif %}
     </div>
 </section>
 {% style %}
@@ -53,9 +39,24 @@
         },
         {
             "type": "color",
-            "id": "scrolling_color_text_id",
-            "label": "Text Color",
+            "id": "scroll_title_color_id",
+            "label": "Color Text",
             "default": "#ffffff"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Scroll Title",
+            "type": "scroll_title",
+            "limit": 10,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "scroll_title_id",
+                    "label": "Title",
+                    "default": "I am a Scroll"
+                }
+            ]
         }
     ],
     "presets": [
