@@ -58,51 +58,103 @@
         "slider_autorotate_second_id": 5
       }
     },
-    "slideshow_wkwtAz": {
-      "type": "slideshow",
+    "collection_second_VYLMM3": {
+      "type": "collection-second",
+      "settings": {
+        "collectionList_id": [
+
+        ]
+      }
+    },
+    "scrolling_content_eKTnXC": {
+      "type": "scrolling-content",
       "blocks": {
-        "slide_JjhWhK": {
-          "type": "slide",
+        "scroll_title_MfRmap": {
+          "type": "scroll_title",
           "settings": {
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center"
+            "scroll_title_id": "I am kamba tukebele"
+          }
+        },
+        "scroll_title_iPNqXY": {
+          "type": "scroll_title",
+          "settings": {
+            "scroll_title_id": "I am a Scroll"
+          }
+        },
+        "scroll_title_KmDziy": {
+          "type": "scroll_title",
+          "settings": {
+            "scroll_title_id": "I am a Scroll"
+          }
+        },
+        "scroll_title_4AKFLx": {
+          "type": "scroll_title",
+          "settings": {
+            "scroll_title_id": "I am a Scroll"
+          }
+        },
+        "scroll_title_RbmEtB": {
+          "type": "scroll_title",
+          "settings": {
+            "scroll_title_id": "I am a Scroll"
+          }
+        },
+        "scroll_title_4TyKdE": {
+          "type": "scroll_title",
+          "settings": {
+            "scroll_title_id": "I am a Scroll"
+          }
+        },
+        "scroll_title_Keghax": {
+          "type": "scroll_title",
+          "settings": {
+            "scroll_title_id": "I am a Scroll"
+          }
+        },
+        "scroll_title_h9Yih3": {
+          "type": "scroll_title",
+          "settings": {
+            "scroll_title_id": "I am a Scroll"
           }
         }
       },
       "block_order": [
-        "slide_JjhWhK"
+        "scroll_title_MfRmap",
+        "scroll_title_iPNqXY",
+        "scroll_title_KmDziy",
+        "scroll_title_4AKFLx",
+        "scroll_title_RbmEtB",
+        "scroll_title_4TyKdE",
+        "scroll_title_Keghax",
+        "scroll_title_h9Yih3"
       ],
-      "disabled": true,
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "adapt_image",
-        "slider_visual": "dots",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
+        "scrolling_color_bg_id": "linear-gradient(262deg, rgba(51, 78, 198, 1), rgba(255, 140, 162, 1) 100%)",
+        "scroll_title_color_id": "#ffffff"
       }
     },
-    "collection_second_VYLMM3": {
-      "type": "collection-second",
+    "product_alt_fbziNE": {
+      "type": "product-alt",
       "settings": {
+        "product_list_id": [
+          "2014-holiday-barbie-ornament-african-american",
+          "anime-cartoon-digimon-digital-monsters",
+          "anime-digimons-digital-monster-tanemon-plush-toys",
+          "banpresto-resolution-of-soldiers-dragon-ball-z-mr-satan-hercule",
+          "banpresto-bwfc-dragon-ball-z-v6-trunks",
+          "barbie-and-ken-dolls",
+          "barbie-bistro-cart",
+          "barbie-pet-groomer-doll",
+          "barbie-skipper-babysitters-inc-doll-and-accessory",
+          "barbie-skipper-babysitters-inc-doll-and-playset"
+        ]
       }
     }
   },
   "order": [
     "slider_3ygaYf",
-    "slideshow_wkwtAz",
-    "collection_second_VYLMM3"
+    "collection_second_VYLMM3",
+    "scrolling_content_eKTnXC",
+    "product_alt_fbziNE"
   ]
 }
