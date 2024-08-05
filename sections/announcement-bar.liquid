@@ -15,7 +15,7 @@
   {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 {% endif %}
 {% if section.settings.display_annoucement == true %}
-  <section style="background-color: {%- if section.settings.bg-color_announcement_id -%} {{- section.settings.bg-color_announcement_id -}}{%- endif -%}; color: {%- if section.settings.text-color_announcement_id -%}{{- section.settings.text-color_announcement_id  -}}{%- endif -%}" class="w-full h-[51px] flex justify-center items-center {% if section.settings.show_line_separator %} border {% endif %}">
+  <section style="background-color: {%- if section.settings.bg-color_announcement_id -%} {{- section.settings.bg-color_announcement_id -}}{%- endif -%}; color: {%- if section.settings.text-color_announcement_id -%}{{- section.settings.text-color_announcement_id  -}}{%- endif -%}" class="w-full h-[51px] flex justify-center items-center {% if section.settings.show_line_separator %} border-b border-gray-400 {% endif %}">
     <div class="container flex justify-center items-center gap-2">   
         <div class="hidden lg:!block lg:full lg:w-full lg:max-w-[33%]">
           {% if section.settings.show_social and social_icons  %}
