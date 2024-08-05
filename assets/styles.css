@@ -2243,6 +2243,11 @@ video {
      object-fit: scale-down;
 }
 
+.object-center{
+  -o-object-position: center;
+     object-position: center;
+}
+
 .p-4{
   padding: 16px;
 }
