@@ -9,17 +9,19 @@
         <div id="scroll-container" class="no-scrollbar w-full h-[fit] block overflow-x-auto whitespace-nowrap">
             {% if section.settings.product_list_id != blank %}
                 {% for product in section.settings.product_list_id %}
-                    <a href="{{ product.url }}" class="inline-block w-full max-w-[290px] h-[410px] shadow bg-white rounded-2xl mx-auto sm:max-w-[297px] sm:h-[420px] md:max-w-[361px] md:h-[476px] py-2 mr-2">
-                        <div class="w-full max-w-[270px] h-[262px] block rounded-lg mx-2 sm:max-w-[277px] sm:h-[270px] md:max-w-[341px] md:h-[332px]">
+                    <a href="{{ product.url }}" class="inline-block w-full max-w-[290px] h-[410px] bg-white rounded-2xl mx-auto sm:max-w-[297px] sm:h-[420px] md:max-w-[361px] md:h-[476px] py-2 mr-2">
+                        <div class="w-full max-w-[270px] h-[262px] block rounded-lg mx-2 sm:max-w-[277px] sm:h-[270px] md:max-w-[341px] md:h-[332px] mb-2">
                             <img class="w-full h-full object-cover object-center" src="{{ product.featured_image | image_url:original }}" alt="{{ product.title }}">
                         </div>
-                        <div class="w-full h-[97px] flex flex-col justify-center items-center">
-                            <h3 class="text-center text-lg font-semibold text-gray-800 w-full">
-                                {{ product.title }}
-                            </h3>
-                            <div>
+                        <div class="w-full px-4 mx-auto h-[97px]">
+                            <div class="block whitespace-nowrap overflow-hidden">
+                                <h3 class="text-center text-lg font-semibold text-gray-800">
+                                    {{ product.title }}
+                                </h3>
+                            </div>
+                            <div class="w-full flex justify-center gap-2 my-1">
                                 {% if product.compare_at_price != blank %}
-                                    <p class="line-through text-gray-400 text-sm">
+                                    <p class="line-through text-red-700 text-sm">
                                         $ {{ product.compare_at_price }}
                                     </p>
                                 {% endif %}                                
@@ -41,14 +43,24 @@
                         <div class="border w-full max-w-[270px] h-[262px] block rounded-lg mx-2 sm:max-w-[277px] sm:h-[270px] md:max-w-[341px] md:h-[332px] mb-5">
                             {{ 'product-5' |  placeholder_svg_tag }}
                         </div>
-                        <div class="w-full h-[97px] flex flex-col justify-center items-center">
-                            <h3 class="text-center text-lg font-semibold text-gray-800">Matebook x89</h3>
-                            <div>
-                                <p class="line-through text-gray-400 text-sm">$65 USD</p>
-                                <p class="text-gray-800 text-sm font-bold">$45 USD</p>
+                        <div class="w-full px-4 mx-auto h-[97px]">
+                            <div class="block whitespace-nowrap overflow-hidden">
+                                <h3 class="text-center text-lg font-semibold text-gray-800">
+                                    Product Title
+                                </h3>
+                            </div>
+                            <div class="w-full flex justify-center gap-2 my-1">
+                                <p class="line-through text-red-700 text-sm">
+                                    $165
+                                </p>                             
+                                <p class="text-gray-800 text-sm font-bold">
+                                    $130
+                                </p>
                             </div>
                             <div>
-
+                                {% comment %} {% for productVariant in product.variants %}
+                                    {{ productVariant.available }}
+                                {% endfor %} {% endcomment %}
                             </div>
                         </div>
                     </div>
@@ -59,7 +71,7 @@
     </div>
 </section>
 
-{% comment %} {% style %}
+{% style %}
     .no-scrollbar::-webkit-scrollbar{
         display:none;
     }
@@ -67,11 +79,11 @@
         -ms-overflow-style:none; 
         scrollbar-width:none
     }
-{% endstyle %} {% endcomment %}
-{% comment %} <script>
+{% endstyle %}
+<script>
     const scrollContainer = document.getElementById('scroll-container');
     const scrollInterval = 3000; // 3 seconds
-    const childDivs = scrollContainer.querySelectorAll('div.inline-block');
+    const childDivs = scrollContainer.querySelectorAll('a.inline-block');
     const scrollAmount = childDivs[0].offsetWidth + parseFloat(getComputedStyle(childDivs[0]).marginRight) * 2;
     let currentIndex = 0;
 
@@ -88,7 +100,7 @@
     currentIndex = (currentIndex + 1) % childDivs.length;
     }, scrollInterval);
 
-</script> {% endcomment %}
+</script>
 
 {% schema %}
 {
