@@ -1,0 +1,76 @@
+<section class="w-full h-fit py-5 bg-gray-100">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-4 lg:grid-cols-2 lg:grid-rows-2 relative">
+            <!-- Card 1 -->
+            <div>
+                <div class="rounded-lg flex flex-col items-center justify-between relative sm:col-span-full lg:col-span-1 lg:w-[482px] xl:w-[610px] xl:h-[240px] 2xl:w-[738px] 2xl:h-[291px] lg:col-start-1">
+                    <div class="absolute left-2 top-10 px-2">
+                        <h6 class="text-blue-700 text-sm">SMALL BUSINESS</h6>
+                        <h5 class="text-lg font-bold mt-1">New Productivity Vostro Laptops</h5>
+                    </div>
+                    <img src="{{ 'laptop.webp' |  asset_url }}" alt="Laptops" class="rounded-lg w-full h-auto object-cover object-center">
+                    <button class="bg-black text-white px-4 py-2 rounded hidden">Shop now</button>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div>
+                <div class="rounded-lg flex flex-col items-center justify-between relative sm:col-span-full lg:col-span-1 lg:w-[482px]  xl:w-[610px] xl:h-[421px] 2xl:w-[738px] 2xl:h-[510px] lg:col-start-2">
+                    <div class="absolute top-10 left-2 px-2">
+                        <h6 class="text-blue-700 text-sm">SUPER AMOLED DISPLAY</h6>
+                        <h5 class="text-lg font-bold mt-1">Dynamic Animated Watch Faces</h5>
+                    </div>
+                    <img src="{{ 'watch.webp' |  asset_url }}" alt="Watch" class="rounded-lg w-full h-auto object-cover object-center">
+                    <button class="bg-black text-white px-4 py-2 rounded hidden">Shop now</button>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="lg:absolute lg:top-56 lg:left-0 xl:top-[270px] 2xl:top-[320px]">
+                <div class="rounded-lg flex flex-col items-center justify-between relative sm:col-span-2 lg:w-[226px]  xl:w-[290px] xl:h-[416px] 2xl:w-[354px] 2xl:h-[505px] lg:row-start-2 lg:col-start-1 lg:grid-flow-row">
+                    <div class="absolute bottom-5 left-2 px-2">
+                        <h6 class="text-blue-700 text-sm">BLUETOOTH WIRELESS</h6>
+                        <h5 class="text-lg font-bold mt-1">Headphone Ecommoceans P9</h5>
+                    </div>
+                    <img src="{{ 'headphone.webp' |  asset_url }}" alt="Headphones" class="rounded-lg w-full h-auto object-cover object-center lg:w-[226px] xl:w-[290px] xl:h-[416px] 2xl:w-[354px] 2xl:h-[505px]">
+                    <button class="bg-black text-white px-4 py-2 rounded hidden">Shop now</button>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="lg:absolute lg:top-56 lg:left-64 xl:top-[270px] xl:left-80 2xl:top-[320px] 2xl:left-96">
+                <div class="rounded-lg flex flex-col items-center justify-between relative sm:col-span-2 lg:w-[226px] xl:w-[290px] xl:h-[416px] 2xl:w-[354px] 2xl:h-[505px] lg:row-start-2 lg:col-start-2">
+                    <div class="absolute top-10 left-2 px-2">
+                        <h6 class="text-blue-700 text-sm">WIRELESS HEADPHONES</h6>
+                        <h5 class="text-lg font-bold mt-1">Unbelievable Savings Await You!</h5>
+                    </div>
+                    <img src="{{ 'headphone2.webp' |  asset_url }}" alt="Wireless Headphones" class="rounded-lg w-full h-auto object-cover object-center lg:w-[226px] xl:w-[290px] xl:h-[416px] 2xl:w-[354px] 2xl:h-[505px]">
+                    <button class="bg-white text-black px-4 py-2 rounded hidden">Shop now</button>
+                </div>
+            </div>
+            <!-- Card 5 -->
+             {% comment %}  {% endcomment %}
+             <div class="lg:absolute lg:top-[360px] lg:right-2 xl:top-[450px] 2xl:top-[530px]">
+                <div class="rounded-lg flex flex-col items-center justify-between relative sm:col-span-full  lg:col-span-1 lg:w-[482px] xl:w-[610px] xl:h-[240px] 2xl:w-[738px] 2xl:h-[291px] lg:col-start-2">
+                    <div class="absolute top-10 right-2 px-2">
+                        <h6 class="text-blue-700 text-sm">BIG SALE OFFER</h6>
+                        <h5 class="text-lg font-bold mt-1">Pebble Magnate Charging Stand</h5>
+                    </div>
+                    <img src="{{ 'phone.webp' |  asset_url }}" alt="Charging Stand" class="rounded-lg w-full h-auto object-cover object-center">
+                    <button class="bg-black text-white px-4 py-2 rounded hidden">Shop now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Grid",
+    "settings": [
+        
+    ],
+    "presets": [
+        {
+            "name": "Grid"
+        }
+    ]
+}
+{% endschema %}
