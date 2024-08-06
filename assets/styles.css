@@ -881,6 +881,10 @@ video {
   height: 24px;
 }
 
+.h-60{
+  height: 240px;
+}
+
 .h-\[262px\]{
   height: 262px;
 }
@@ -926,6 +930,18 @@ video {
   height: 100%;
 }
 
+.h-56{
+  height: 224px;
+}
+
+.h-\[166px\]{
+  height: 166px;
+}
+
+.h-\[50px\]{
+  height: 50px;
+}
+
 .w-3{
   width: 12px;
 }
@@ -968,6 +984,14 @@ video {
 
 .w-screen{
   width: 100vw;
+}
+
+.w-\[290px\]{
+  width: 290px;
+}
+
+.w-\[50px\]{
+  width: 50px;
 }
 
 .max-w-\[270px\]{
@@ -1549,6 +1573,10 @@ video {
   gap: 20px;
 }
 
+.gap-3{
+  gap: 12px;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(8px * var(--tw-space-x-reverse));
@@ -2025,9 +2053,34 @@ video {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
+.bg-red-100{
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+}
+
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.bg-green-200{
+  --tw-bg-opacity: 1;
+  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
+}
+
+.bg-green-600{
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-400{
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
 }
 
 .decoration-slice{
@@ -2395,6 +2448,11 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-gray-900{
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
 .underline{
@@ -2935,6 +2993,10 @@ video {
     width: 300px;
   }
 
+  .md\:w-\[350px\]{
+    width: 350px;
+  }
+
   .md\:max-w-\[341px\]{
     max-width: 341px;
   }
@@ -3114,6 +3176,10 @@ video {
 
   .lg\:w-full{
     width: 100%;
+  }
+
+  .lg\:w-\[450px\]{
+    width: 450px;
   }
 
   .lg\:max-w-\[33\%\]{
@@ -3298,6 +3364,10 @@ video {
     width: 600px;
   }
 
+  .xl\:w-\[550px\]{
+    width: 550px;
+  }
+
   .xl\:flex-row{
     flex-direction: row;
   }
@@ -3316,6 +3386,14 @@ video {
 
   .xl\:gap-3{
     gap: 12px;
+  }
+
+  .xl\:overflow-x-visible{
+    overflow-x: visible;
+  }
+
+  .xl\:whitespace-normal{
+    white-space: normal;
   }
 
   .xl\:bg-transparent{
