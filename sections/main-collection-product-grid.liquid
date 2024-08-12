@@ -1,220 +1,324 @@
-<section class="relative w-full h-full">
-  <div class="container mx-auto">
-    {% comment %} Small Device {% endcomment %}
-    {% comment %} Filter and Sort {% endcomment %}
-    <div class="flex justify-around items-center mb-5 w-full h-[53px] border mx-auto border-gay-200 rounded-lg">
-      <div>
-        {% render 'filter-icon' %}
+<section class="w-full h-full my-10">
+  <div class="container mx-auto lg:flex justify-between items-start">
+    <div class="lg:w-1/5">
+      {% comment %} Small Device {% endcomment %}
+      {% comment %} Filter and Sort {% endcomment %}
+      <div
+        class="flex justify-around items-center mb-5 w-full h-[53px] border mx-auto border-gay-200 rounded-lg collection-filter-container">
+        <div class="lg:hidden">
+          {% render 'filter-icon' %}
+        </div>
+        <div>
+          <p>Filter and Sort</p>
+        </div>
+        <div class="lg:hidden">
+          <p>{{ collection.products_count }} Products</p>
+        </div>
       </div>
-      <div>
-        <p>Filter and Sort</p>
+      {% comment %} End Filter and Sort {% endcomment %}
+      {% comment %} Submenu Filter and Sort {% endcomment %}
+      <div
+        class="bg-gray-100 w-[269px] sm:w-[374px] h-screen z-30 py-5 flex flex-grow flex-col justify-start items-center gap-16 absolute top-0 -left-[1200px] collection-menu-container duration-300 ease-in-out lg:static lg:w-[240px] xl:w-[300px]">
+        <div class="w-full h-[62px] flex justify-around items-center lg:hidden">
+          <div class="block text-sm collection-menu-close-container">
+            {% render 'icon-close' %}
+          </div>
+          <div>
+            <p class="text-sm font-semibold">Filter and Sort 10 products</p>
+          </div>
+        </div>
+        <div class="w-full flex flex-col justify-center items-center gap-3">
+          {% comment %} Availability {% endcomment %}
+          <div class="">
+            <div
+              class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md container-box lg:py-5 lg:px-4 lg:w-[210px] xl:w-[270px]">
+              <div>
+                <p class="text-sm font-semibold">Availability</p>
+              </div>
+              <div>
+                {% render 'icon-arrow' %}
+              </div>
+            </div>
+            {% comment %} Sub Availability {% endcomment %}
+            <div
+              class="flex justify-start items-center flex-col p-4 gap-8 h-screen w-full sub-container-box absolute top-0 -left-[1200px] z-50 bg-gray-100 duration-300 ease-in-out lg:hidden">
+              <div class="w-full flex justify-between items-center">
+                <div class="sub-container-icon">
+                  {% render 'icon-arrow' %}
+                </div>
+                <div>
+                  <p>Availability</p>
+                </div>
+              </div>
+              <div class="">
+                <div>
+                  <input type="checkbox" name="checkbox">
+                  <label for="checkbox">In stock (10)</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="checkbox">
+                  <label for="checkbox">Out stock (10)</label>
+                </div>
+                {% comment %} Buttons {% endcomment %}
+                <div class="full flex flex-col justify-center items-center gap-2 mt-4">
+                  <button class="bg-blue-700 py-2 px-4 w-[180px] sm:w-[204px] sm:w- rounded-lg text-white">Remove all</button>
+                  <button class="bg-blue-700 py-2 px-4 w-[180px] sm:w-[204px] sm:w- rounded-lg text-white">Apply</button>
+                </div>
+              </div>
+            </div>
+            {% comment %} End Sub Availability {% endcomment %}
+          </div>
+          {% comment %} End Availability {% endcomment %}
+          {% comment %} Price {% endcomment %}
+          <div class="">
+            <div
+              class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md container-box lg:py-5 lg:px-4 lg:w-[210px] xl:w-[270px]">
+              <div>
+                <p class="text-sm font-semibold">Price</p>
+              </div>
+              <div>
+                {% render 'icon-arrow' %}
+              </div>
+            </div>
+            {% comment %} Sub Price {% endcomment %}
+            <div
+              class="flex justify-start items-center flex-col p-4 gap-8 h-screen w-full sub-container-box absolute top-0 -left-[1200px] z-50 bg-gray-100 duration-300 ease-in-out lg:hidden">
+              <div class="w-full flex justify-between items-center">
+                <div class="sub-container-icon">
+                  {% render 'icon-arrow' %}
+                </div>
+                <div>
+                  <p>Price</p>
+                </div>
+              </div>
+              <div class="w-full">
+                <p>The highest price is $450.00</p>
+              </div>
+              <div class="flex justify-between items-center">
+                <div class="flex justify-center items-center gap-1">
+                  <label for="low-price">$</label>
+                  <input type="text" class="w-[70px] h-10 pl-3 rounded-sm" name="low-price" placeholder="0" value="0">
+                </div>
+                <div class="flex justify-center items-center gap-1">
+                  <label for="low-price">$</label>
+                  <input type="text" class="w-[70px] h-10 pl-3 rounded-sm" name="high-price" placeholder="450" value="450">
+                </div>
+              </div>
+              {% comment %} Buttons {% endcomment %}
+              <div class="full flex flex-col justify-center items-center gap-2">
+                <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Clear</button>
+                <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Apply</button>
+              </div>
+            </div>
+            {% comment %} End Sub Price {% endcomment %}
+          </div>
+          {% comment %} End Price {% endcomment %}
+          {% comment %} More Filter {% endcomment %}
+          <div class="">
+            <div
+              class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md container-box lg:py-5 lg:px-4 lg:w-[210px] xl:w-[270px]">
+              <div>
+                <p class="text-sm font-semibold">More filters</p>
+              </div>
+              <div>
+                {% render 'icon-arrow' %}
+              </div>
+            </div>
+            {% comment %} Sub More filters {% endcomment %}
+            <div
+              class="flex justify-start items-center flex-col p-4 gap-8 h-screen w-full sub-container-box absolute top-0 -left-[1200px] z-50 bg-gray-100 duration-300 ease-in-out lg:hidden">
+              <div class="w-full flex justify-between items-center">
+                <div class="sub-container-icon">
+                  {% render 'icon-arrow' %}
+                </div>
+                <div>
+                  <p>More filters</p>
+                  <p>Match all</p>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <input type="checkbox" name="checkbox">
+                  <label for="checkbox">gadget (10)</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="checkbox">
+                  <label for="checkbox">Mobile (10)</label>
+                </div>
+                {% comment %} Buttons {% endcomment %}
+                <div class="full flex flex-col justify-center items-center gap-2">
+                  <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Clear</button>
+                  <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Apply</button>
+                </div>
+              </div>
+            </div>
+            {% comment %} End Sub More filters {% endcomment %}
+          </div>
+          {% comment %} End More Filter {% endcomment %}
+          {% comment %} Brand {% endcomment %}
+          <div class="">
+            <div
+              class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md container-box lg:py-5 lg:px-4 lg:w-[210px] xl:w-[270px]">
+              <div>
+                <p class="text-sm font-semibold">Brand</p>
+              </div>
+              <div>
+                {% render 'icon-arrow' %}
+              </div>
+            </div>
+            {% comment %} Sub Brand {% endcomment %}
+            <div
+              class="flex justify-start items-center flex-col p-4 gap-8 h-screen w-full sub-container-box absolute top-0 -left-[1200px] z-50 bg-gray-100 duration-300 ease-in-out lg:hidden">
+              <div class="w-full flex justify-between items-center">
+                <div class="sub-container-icon">
+                  {% render 'icon-arrow' %}
+                </div>
+                <div>
+                  <p>Brand</p>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <input type="checkbox" name="checkbox">
+                  <label for="checkbox">e-Techno-electronic (10)</label>
+                </div>
+                <div>
+                  <input type="checkbox" name="checkbox">
+                  <label for="checkbox">Out stock (10)</label>
+                </div>
+                {% comment %} Buttons {% endcomment %}
+                <div class="full flex flex-col justify-center items-center gap-2">
+                  <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Clear</button>
+                  <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Apply</button>
+                </div>
+              </div>
+            </div>
+            {% comment %} End Sub Availability {% endcomment %}
+          </div>
+          {% comment %} End Brand {% endcomment %}
+          {% comment %} Sort by {% endcomment %}
+          <div class="">
+            <div class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md lg:py-5 lg:px-4 lg:w-[210px] xl:w-[270px]">
+              <div>
+                <p class="text-sm font-semibold">Sort by:</p>
+              </div>
+              <div>
+                {% render 'icon-arrow' %}
+              </div>
+            </div>
+          </div>
+          {% comment %} End Sort by {% endcomment %}
+        </div>
+        {% comment %} Bottom buttons {% endcomment %}
+        <div class="full flex flex-col justify-center items-center gap-2 lg:hidden">
+          <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Remove all</button>
+          <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Apply</button>
+        </div>
+        {% comment %} Bottom buttons {% endcomment %}
       </div>
-      <div>
-        <p>10 Products</p>
-      </div>
+      {% comment %} Submenu Filter and Sort {% endcomment %}
+      {% comment %} End Small Device {% endcomment %}
     </div>
-    {% comment %} End Filter and Sort {% endcomment %}
-   {% comment %} Submenu Filter and Sort {% endcomment %}
-  <div class="bg-red-100 w-[269px] sm:w-[374px] h-screen z-30 py-5 flex flex-grow flex-col justify-start items-center gap-16 absolute top-0 left-0">
-    <div class="w-full h-[62px] flex justify-around items-center">
-      <div class="block text-sm">
-        {% render 'icon-close' %}
-      </div>
-      <div>
-        <p class="text-sm font-semibold">Filter and Sort 10 products</p>
-      </div>
-    </div>
-    <div class="w-full flex flex-col justify-center items-center gap-3">
-      {% comment %} Availability {% endcomment %}
-      <div class="">
-        <div class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md">
-          <div>
-            <p class="text-sm font-semibold">Availability</p>
-          </div>
-          <div>
-            {% render 'icon-arrow' %}
-          </div>
-        </div>
-        {% comment %} Sub Availability {% endcomment %}
-        <div class="hidden w-[229px] sm:w-[334px]">
-          <div class="flex justify-between items-center">
-            <div>
-              {% render 'icon-arrow' %}
-            </div>
-            <div>
-              <p>Availability</p>
-            </div>
-          </div>
-          <div>
-            <div>
-              <input type="checkbox" name="checkbox">
-              <label for="checkbox">In stock (10)</label>
-            </div>
-            <div>
-              <input type="checkbox" name="checkbox">
-              <label for="checkbox">Out stock (10)</label>
-            </div>
-            {% comment %} Buttons {% endcomment %}
-            <div class="full flex flex-col justify-center items-center gap-2">
-              <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Remove all</button>
-              <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Apply</button>
-            </div>
-          </div>
-        </div>
-        {% comment %} End Sub Availability {% endcomment %}
-      </div>
-      {% comment %} End Availability {% endcomment %}
-       {% comment %} Price {% endcomment %}
-      <div class="">
-        <div class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md">
-          <div>
-            <p class="text-sm font-semibold">Price</p>
-          </div>
-          <div>
-            {% render 'icon-arrow' %}
-          </div>
-        </div>
-        {% comment %} Sub Price {% endcomment %}
-        <div class="hidden w-[229px] sm:w-[334px]">
-          <div class="flex justify-between items-center">
-            <div>
-              {% render 'icon-arrow' %}
-            </div>
-            <div>
-              <p>Price</p>
-            </div>
-          </div>
-          <div class="w-full">
-            <p>The highest price is $450.00</p>
-          </div>
-          <div class="flex justify-between items-center">
-            <div class="flex justify-center items-center gap-1">
-              <label for="low-price">$</label>
-              <input type="text" class="w-[70px] h-10 pl-3 rounded-sm" name="low-price" placeholder="0" value="0">                  
-            </div>
-            <div class="flex justify-center items-center gap-1">
-              <label for="low-price">$</label>
-              <input type="text" class="w-[70px] h-10 pl-3 rounded-sm" name="high-price" placeholder="450" value="450">    
-            </div>
-          </div> 
-          {% comment %} Buttons {% endcomment %}
-          <div class="full flex flex-col justify-center items-center gap-2">
-            <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Clear</button>
-            <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Apply</button>
-          </div>
-        </div>
-        {% comment %} End Sub Price {% endcomment %}
-      </div>
-      {% comment %} End Price {% endcomment %}
-      {% comment %}  More Filter {% endcomment %}
-      <div class="">
-        <div class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md">
-          <div>
-            <p class="text-sm font-semibold">More filters</p>
-          </div>
-          <div>
-            {% render 'icon-arrow' %}
-          </div>
-        </div>
-        {% comment %} Sub More filters {% endcomment %}
-        <div class="hidden w-[229px] sm:w-[334px]">
-          <div class="flex justify-between items-center">
-            <div>
-              {% render 'icon-arrow' %}
-            </div>
-            <div>
-              <p>More filters</p>
-              <p>Match all</p>
-            </div>
-          </div>
-          <div>
-            <div>
-              <input type="checkbox" name="checkbox">
-              <label for="checkbox">gadget (10)</label>
-            </div>
-            <div>
-              <input type="checkbox" name="checkbox">
-              <label for="checkbox">Mobile (10)</label>
-            </div>
-            {% comment %} Buttons {% endcomment %}
-            <div class="full flex flex-col justify-center items-center gap-2">
-              <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Clear</button>
-              <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Apply</button>
-            </div>
-          </div>
-        </div>
-        {% comment %} End Sub More filters {% endcomment %}
-      </div>
-      {% comment %}  End More Filter {% endcomment %}
-      {% comment %}  Brand {% endcomment %}
-      <div class="">
-        <div class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md">
-          <div>
-            <p class="text-sm font-semibold">Brand</p>
-          </div>
-          <div>
-            {% render 'icon-arrow' %}
-          </div>
-        </div>
-        {% comment %} Sub Brand {% endcomment %}
-        <div class="hidden w-[229px] sm:w-[334px]">
-          <div class="flex justify-between items-center">
-            <div>
-              {% render 'icon-arrow' %}
-            </div>
-            <div>
-              <p>Brand</p>
-            </div>
-          </div>
-          <div>
-            <div>
-              <input type="checkbox" name="checkbox">
-              <label for="checkbox">e-Techno-electronic (10)</label>
-            </div>
-            <div>
-              <input type="checkbox" name="checkbox">
-              <label for="checkbox">Out stock (10)</label>
-            </div>
-            {% comment %} Buttons {% endcomment %}
-            <div class="full flex flex-col justify-center items-center gap-2">
-              <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Clear</button>
-              <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Apply</button>
-            </div>
-          </div>
-        </div>
-        {% comment %} End Sub Availability {% endcomment %}
-      </div>
-      {% comment %}  End Brand {% endcomment %}
-      {% comment %} Sort by {% endcomment %}
-      <div class="">
-        <div class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md">
-          <div>
-            <p class="text-sm font-semibold">Sort by:</p>
-          </div>
-          <div>
-            {% render 'icon-arrow' %}
-          </div>
-        </div>
-      </div>
-      {% comment %} End Sort by {% endcomment %}
-    </div>
-    {% comment %} Bottom buttons {% endcomment %}
-    <div class="full flex flex-col justify-center items-center gap-2">
-      <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Remove all</button>
-      <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Apply</button>
-    </div>
-    {% comment %} Bottom buttons {% endcomment %}
-  </div>
-  {% comment %} Submenu Filter and Sort {% endcomment %}
-    {% comment %} End Small Device {% endcomment %}
     {% comment %} Product grid {% endcomment %}
+    <div class="block lg:w-3/4">
+      {% if collection.products_count > 0 %}
+        <div class="w-full mx-auto grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {% for product in collection.products %}
+            <a href="{{ product.url }}"
+              class="block w-[280px] mx-auto sm:h-[450px] bg-white shadow rounded-2xl lg:w-[220px] xl:w-[280px] 2xl:w-[350px]">
+              <div
+                class="w-[250px] mx-auto sm:h-[320px] sm:w-full lg:w-[180px] xl:w-[250px]">
+                <img class="w-full h-full object-cover object-center" src="{{ product.featured_image | image_url:original }}"
+                  alt="{{ product.title }}">
+              </div>
+              <div class="w-full h-[130px] flex flex-col justify-around items-center lg:h-fit lg:justify-center mx-auto">
+                <div class="">
+                  <h3 class="text-center text-lg font-semibold text-gray-800">
+                    {{ product.title }}
+                  </h3>
+                </div>
+                <div class="">
+                  {% if product.compare_at_price != blank %}
+                  <p class="line-through text-red-700 text-sm">
+                    $ {{ product.compare_at_price }}
+                  </p>
+                  {% endif %}
+                  <p class="text-gray-800 text-sm font-bold">
+                    {{ product.price | money }}
+                  </p>
+                </div>
+                <div>
+                  {% comment %} {% for productVariant in product.variants %}
+                  {{ productVariant.available }}
+                  {% endfor %} {% endcomment %}
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+        {% else %}
+          <h3 class="font-semibold text-lg underline text-center">There is not product</h3>
+      {% endif %}
+    </div>
   </div>
 </section>
+
+
+
 <style>
   .icon{
     width: 12px;
   }
 </style>
+<script>
+   //Targeting the all container that contains collection menu 
+  const collectionMenuContainer = document.getElementsByClassName("collection-menu-container")[0];
+  const collectionMenuCloseContainer = document.getElementsByClassName("collection-menu-close-container")[0];
+  const collectionFilterContainer = document.getElementsByClassName("collection-filter-container")[0];
+  //Targeting the collection sub container box
+  const containerBox = document.getElementsByClassName('container-box');
+  const subContainerBox = document.getElementsByClassName('sub-container-box');
+  const subContainerIcon = document.getElementsByClassName('sub-container-box');
+ 
+  collectionFilterContainer.addEventListener('click', () => {    
+    collectionMenuContainer.classList.remove("-left-[1200px]");
+    collectionMenuContainer.classList.add("left-0");
+    for (let index = 0; index < containerBox.length; index++) {
+      containerBox[index].addEventListener('click', () =>{
+        for (let j = 0; j < subContainerBox.length; j++) {
+          if (index === j) {
+            subContainerBox[j].classList.remove('-left-[1200px]');
+            subContainerBox[j].classList.add('left-0');
+          }        
+        };            
+      });
+      for (let k = 0; k < subContainerIcon.length; k++) {
+        subContainerIcon[k].addEventListener('click', () =>{
+          if (index === k) {
+            subContainerBox[k].classList.add('-left-[1200px]');
+            subContainerBox[k].classList.remove('left-0');
+          }
+        });
+      }
+    }
+  });
+  collectionMenuCloseContainer.addEventListener('click', () =>{
+    collectionMenuContainer.classList.add("-left-[1200px]");
+    collectionMenuContainer.classList.remove("left-0");
+  });
+
+
+ 
+ 
+  // containerBox.addEventListener('click', () =>{
+  //   subContainerBox.classList.remove('-left-[1200px]');
+  //   subContainerBox.classList.add('left-0');
+  // });
+  // subContainerIcon.addEventListener('click', () => {
+  //   subContainerBox.classList.add('-left-[1200px]');
+  //   subContainerBox.classList.remove('left-0');
+  // });
+</script>
 {% schema %}
 {
   "name": "t:sections.main-collection-product-grid.name",
