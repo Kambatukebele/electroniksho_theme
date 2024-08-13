@@ -31,7 +31,7 @@
           {% comment %} Availability {% endcomment %}
           <div class="">
             <div
-              class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md container-box lg:py-5 lg:px-4 lg:w-[210px] xl:w-[270px]">
+              class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md container-box lg:py-5 lg:cursor-pointer lg:px-4 lg:w-[210px] xl:w-[270px]">
               <div>
                 <p class="text-sm font-semibold">Availability</p>
               </div>
@@ -41,8 +41,8 @@
             </div>
             {% comment %} Sub Availability {% endcomment %}
             <div
-              class="flex justify-start items-center flex-col p-4 gap-8 h-screen w-full sub-container-box absolute top-0 -left-[1200px] z-50 bg-gray-100 duration-300 ease-in-out lg:hidden">
-              <div class="w-full flex justify-between items-center">
+              class="flex justify-start items-center flex-col p-4 gap-8 h-screen w-full sub-container-box absolute top-0 -left-[1200px] z-50 bg-gray-100 duration-300 ease-in-out lg:static lg:h-fit lg:hidden">
+              <div class="w-full flex justify-between items-center lg:hidden">
                 <div class="sub-container-icon">
                   {% render 'icon-arrow' %}
                 </div>
@@ -50,17 +50,17 @@
                   <p>Availability</p>
                 </div>
               </div>
-              <div class="">
+              <div class="lg:w-full lg:flex lg:flex-col lg:gap-4 lg:duration-700 lg:ease-in-out">
                 <div>
                   <input type="checkbox" name="checkbox">
-                  <label for="checkbox">In stock (10)</label>
+                  <label for="checkbox">In stock ({{ collection.products_count }} )</label>
                 </div>
                 <div>
                   <input type="checkbox" name="checkbox">
                   <label for="checkbox">Out stock (10)</label>
                 </div>
                 {% comment %} Buttons {% endcomment %}
-                <div class="full flex flex-col justify-center items-center gap-2 mt-4">
+                <div class="full flex flex-col justify-center items-center gap-2 mt-4 lg:hidden">
                   <button class="bg-blue-700 py-2 px-4 w-[180px] sm:w-[204px] sm:w- rounded-lg text-white">Remove all</button>
                   <button class="bg-blue-700 py-2 px-4 w-[180px] sm:w-[204px] sm:w- rounded-lg text-white">Apply</button>
                 </div>
@@ -72,7 +72,7 @@
           {% comment %} Price {% endcomment %}
           <div class="">
             <div
-              class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md container-box lg:py-5 lg:px-4 lg:w-[210px] xl:w-[270px]">
+              class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md container-box lg:py-5 lg:cursor-pointer lg:px-4 lg:w-[210px] xl:w-[270px]">
               <div>
                 <p class="text-sm font-semibold">Price</p>
               </div>
@@ -82,8 +82,8 @@
             </div>
             {% comment %} Sub Price {% endcomment %}
             <div
-              class="flex justify-start items-center flex-col p-4 gap-8 h-screen w-full sub-container-box absolute top-0 -left-[1200px] z-50 bg-gray-100 duration-300 ease-in-out lg:hidden">
-              <div class="w-full flex justify-between items-center">
+              class="flex justify-start items-center flex-col p-4 gap-8 h-screen w-full sub-container-box absolute top-0 -left-[1200px] z-50 bg-gray-100 duration-300 ease-in-out lg:static lg:z-0 lg:h-fit lg:hidden">
+              <div class="w-full flex justify-between items-center lg:hidden">
                 <div class="sub-container-icon">
                   {% render 'icon-arrow' %}
                 </div>
@@ -92,20 +92,24 @@
                 </div>
               </div>
               <div class="w-full">
-                <p>The highest price is $450.00</p>
+                <p>The highest price is ${{ product.price_max }}</p>
               </div>
-              <div class="flex justify-between items-center">
+              <div class="flex justify-between items-center lg:w-full">
                 <div class="flex justify-center items-center gap-1">
                   <label for="low-price">$</label>
-                  <input type="text" class="w-[70px] h-10 pl-3 rounded-sm" name="low-price" placeholder="0" value="0">
+                  <input type="text" class="w-[70px] h-10 pl-3 rounded-sm" name="low-price" placeholder="0" value="{{ product.price_min }}">
                 </div>
                 <div class="flex justify-center items-center gap-1">
                   <label for="low-price">$</label>
-                  <input type="text" class="w-[70px] h-10 pl-3 rounded-sm" name="high-price" placeholder="450" value="450">
+                  <input type="text" class="w-[70px] h-10 pl-3 rounded-sm" name="high-price" placeholder="450" value="{{ product.price_max }}">
                 </div>
+              </div>
+              {% comment %} Price Range {% endcomment %}
+              <div class="hidden lg:!block lg:w-full">
+                <input class="w-full" type="range" name="price-range" min="0" max="10">
               </div>
               {% comment %} Buttons {% endcomment %}
-              <div class="full flex flex-col justify-center items-center gap-2">
+              <div class="full flex flex-col justify-center items-center gap-2 lg:hidden">
                 <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Clear</button>
                 <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Apply</button>
               </div>
@@ -116,7 +120,7 @@
           {% comment %} More Filter {% endcomment %}
           <div class="">
             <div
-              class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md container-box lg:py-5 lg:px-4 lg:w-[210px] xl:w-[270px]">
+              class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md container-box lg:py-5 lg:cursor-pointer lg:px-4 lg:w-[210px] xl:w-[270px]">
               <div>
                 <p class="text-sm font-semibold">More filters</p>
               </div>
@@ -126,8 +130,8 @@
             </div>
             {% comment %} Sub More filters {% endcomment %}
             <div
-              class="flex justify-start items-center flex-col p-4 gap-8 h-screen w-full sub-container-box absolute top-0 -left-[1200px] z-50 bg-gray-100 duration-300 ease-in-out lg:hidden">
-              <div class="w-full flex justify-between items-center">
+              class="flex justify-start items-center flex-col p-4 gap-8 h-screen w-full sub-container-box absolute top-0 -left-[1200px] z-50 bg-gray-100 duration-300 ease-in-out lg:static lg:h-fit lg:hidden">
+              <div class="w-full flex justify-between items-center lg:hidden">
                 <div class="sub-container-icon">
                   {% render 'icon-arrow' %}
                 </div>
@@ -136,7 +140,7 @@
                   <p>Match all</p>
                 </div>
               </div>
-              <div>
+              <div class="lg:w-full lg:flex lg:flex-col lg:gap-4">
                 <div>
                   <input type="checkbox" name="checkbox">
                   <label for="checkbox">gadget (10)</label>
@@ -146,7 +150,7 @@
                   <label for="checkbox">Mobile (10)</label>
                 </div>
                 {% comment %} Buttons {% endcomment %}
-                <div class="full flex flex-col justify-center items-center gap-2">
+                <div class="full flex flex-col justify-center items-center gap-2 lg:hidden">
                   <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Clear</button>
                   <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Apply</button>
                 </div>
@@ -158,7 +162,7 @@
           {% comment %} Brand {% endcomment %}
           <div class="">
             <div
-              class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md container-box lg:py-5 lg:px-4 lg:w-[210px] xl:w-[270px]">
+              class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md container-box lg:cursor-pointer lg:py-5 lg:px-4 lg:w-[210px] xl:w-[270px]">
               <div>
                 <p class="text-sm font-semibold">Brand</p>
               </div>
@@ -168,8 +172,8 @@
             </div>
             {% comment %} Sub Brand {% endcomment %}
             <div
-              class="flex justify-start items-center flex-col p-4 gap-8 h-screen w-full sub-container-box absolute top-0 -left-[1200px] z-50 bg-gray-100 duration-300 ease-in-out lg:hidden">
-              <div class="w-full flex justify-between items-center">
+              class="flex justify-start items-center flex-col p-4 gap-8 h-screen w-full sub-container-box absolute top-0 -left-[1200px] z-50 bg-gray-100 duration-300 ease-in-out lg:static lg:h-fit lg:hidden">
+              <div class="w-full flex justify-between items-center lg:hidden">
                 <div class="sub-container-icon">
                   {% render 'icon-arrow' %}
                 </div>
@@ -177,7 +181,7 @@
                   <p>Brand</p>
                 </div>
               </div>
-              <div>
+              <div class="lg:flex lg:flex-col lg:w-full lg:gap-4">
                 <div>
                   <input type="checkbox" name="checkbox">
                   <label for="checkbox">e-Techno-electronic (10)</label>
@@ -187,7 +191,7 @@
                   <label for="checkbox">Out stock (10)</label>
                 </div>
                 {% comment %} Buttons {% endcomment %}
-                <div class="full flex flex-col justify-center items-center gap-2">
+                <div class="full flex flex-col justify-center items-center gap-2 lg:hidden">
                   <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Clear</button>
                   <button class="bg-blue-700 py-2 px-4 w-[230px] sm:w-[334px] sm:w- rounded-lg text-white">Apply</button>
                 </div>
@@ -198,7 +202,7 @@
           {% comment %} End Brand {% endcomment %}
           {% comment %} Sort by {% endcomment %}
           <div class="">
-            <div class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md lg:py-5 lg:px-4 lg:w-[210px] xl:w-[270px]">
+            <div class="w-[229px] sm:w-[334px] p-2 mx-auto flex justify-between items-center bg-white rounded-md lg:py-5 lg:cursor-pointer lg:px-4 lg:w-[210px] xl:w-[270px]">
               <div>
                 <p class="text-sm font-semibold">Sort by:</p>
               </div>
@@ -262,7 +266,7 @@
     </div>
   </div>
 </section>
-
+ {{ product.available }}
 
 
 <style>
@@ -278,46 +282,64 @@
   //Targeting the collection sub container box
   const containerBox = document.getElementsByClassName('container-box');
   const subContainerBox = document.getElementsByClassName('sub-container-box');
-  const subContainerIcon = document.getElementsByClassName('sub-container-box');
+  const subContainerIcon = document.getElementsByClassName('sub-container-icon');
  
   collectionFilterContainer.addEventListener('click', () => {    
     collectionMenuContainer.classList.remove("-left-[1200px]");
-    collectionMenuContainer.classList.add("left-0");
-    for (let index = 0; index < containerBox.length; index++) {
-      containerBox[index].addEventListener('click', () =>{
-        for (let j = 0; j < subContainerBox.length; j++) {
-          if (index === j) {
-            subContainerBox[j].classList.remove('-left-[1200px]');
-            subContainerBox[j].classList.add('left-0');
-          }        
-        };            
+    collectionMenuContainer.classList.add("left-0");  
+    collectionMenuNav(containerBox, subContainerBox)  
+    // for (let index = 0; index < containerBox.length; index++) {
+    //   collectionMenuNav(containerBox, subContainerBox, index);
+    //   // containerBox[index].addEventListener('click', () =>{
+        
+    //   //   for (let j = 0; j < subContainerBox.length; j++) {
+    //   //     if (index === j) {
+    //   //       //Small device
+    //   //       subContainerBox[j].classList.remove('-left-[1200px]');
+    //   //       subContainerBox[j].classList.add('left-0');    
+    //   //       // Large device        
+    //   //     }
+    //   //   };  
+    //   //   // Targetting on Large Screen          
+    //   // });
+    //   for (let k = 0; k < subContainerIcon.length; k++) {
+    //     subContainerIcon[k].addEventListener('click', () =>{
+    //       if (index === k) {
+    //         subContainerBox[k].classList.add('-left-[1200px]');
+    //         subContainerBox[k].classList.remove('left-0');
+    //       }
+    //     });
+    //   }
+    // }
+  });
+  collectionMenuNav(containerBox, subContainerBox) // Called on large screen
+  function collectionMenuNav (con, sub) {
+    for (let i = 0; i < containerBox.length; i++) {
+      con[i].addEventListener('click', () =>{        
+        for (let j = 0; j < sub.length; j++) {
+          if (i === j) {
+            //Small device
+            sub[j].classList.remove('-left-[1200px]');
+            sub[j].classList.add('left-0');      
+          }
+          // Large device       
+          if (sub[j].classList.contains('lg:hidden') && j === i ) {
+            sub[j].classList.remove('lg:hidden')    
+          }else{
+            sub[j].classList.add('lg:hidden') 
+          }
+        };   
       });
       for (let k = 0; k < subContainerIcon.length; k++) {
-        subContainerIcon[k].addEventListener('click', () =>{
-          if (index === k) {
-            subContainerBox[k].classList.add('-left-[1200px]');
-            subContainerBox[k].classList.remove('left-0');
+        subContainerIcon[k].addEventListener('click', () => {
+          if (i === k) {
+            sub[k].classList.add('-left-[1200px]');
+            sub[k].classList.remove('left-0');
           }
         });
       }
     }
-  });
-  collectionMenuCloseContainer.addEventListener('click', () =>{
-    collectionMenuContainer.classList.add("-left-[1200px]");
-    collectionMenuContainer.classList.remove("left-0");
-  });
-
-
- 
- 
-  // containerBox.addEventListener('click', () =>{
-  //   subContainerBox.classList.remove('-left-[1200px]');
-  //   subContainerBox.classList.add('left-0');
-  // });
-  // subContainerIcon.addEventListener('click', () => {
-  //   subContainerBox.classList.add('-left-[1200px]');
-  //   subContainerBox.classList.remove('left-0');
-  // });
+  }
 </script>
 {% schema %}
 {
