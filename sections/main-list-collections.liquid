@@ -1,52 +1,25 @@
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
-{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
-
-<div class="page-width">
-  <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    {{ section.settings.title }}
-  </h1>
-  {%- liquid
-    case section.settings.sort
-      when 'products_high', 'products_low'
-        assign collections = collections | sort: 'all_products_count'
-      when 'date', 'date_reversed'
-        assign collections = collections | sort: 'published_at'
-    endcase
-
-    if section.settings.sort == 'products_high' or section.settings.sort == 'date_reversed' or section.settings.sort == 'alphabetical_reversed'
-      assign collections = collections | reverse
-    endif
-
-    assign moduloResult = 28 | modulo: section.settings.columns_desktop
-    assign paginate_by = 30
-    if moduloResult == 0
-      assign paginate_by = 28
-    endif
-  -%}
-  {%- paginate collections by paginate_by -%}
-    <ul
-      class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
-      role="list"
-    >
-      {%- for collection in collections -%}
-        <li
-          class="collection-list__item grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style="--animation-order: {{ forloop.index }};"
-          {% endif %}
-        >
-          {% render 'card-collection',
-            card_collection: collection,
-            media_aspect_ratio: section.settings.image_ratio,
-            columns: 3
-          %}
-        </li>
-      {%- endfor -%}
-    </ul>
-    {% render 'pagination', paginate: paginate %}
-  {%- endpaginate -%}
-</div>
+<section class="w-full h-fit py-5 lg:py-10">
+  <div class="container mx-auto">
+    <div class="block w-full">
+      <div class="w-full mx-auto grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3  xl:grid-cols-4">
+        {% for collection in collections %}
+        <a href="{{ collection.url }}"
+          class="block w-[280px] mx-auto sm:h-[380px] bg-white shadow rounded-2xl md:w-full">
+          <div class="mx-auto w-[280px] h-[320px] md:w-full">
+            <img class="w-full h-full object-cover object-center"
+              src="{{ collection.featured_image | image_url:original }}" alt="{{ collection.title }}">
+          </div>
+          <div class="w-full h-fit py-3">
+            <h3 class="text-center text-lg font-semibold text-gray-800">
+              {{ collection.title }}
+            </h3>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
 {% schema %}
 {
   "name": "t:sections.main-list-collections.name",

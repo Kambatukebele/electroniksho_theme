@@ -1,0 +1,57 @@
+<section>
+    <div>
+        <div class="block lg:w-3/4">
+            {% if collection.products_count > 0 %}
+            <div class="w-full mx-auto grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {% for product in collection.products %}
+                <a href="{{ product.url }}"
+                    class="block w-[280px] mx-auto sm:h-[450px] bg-white shadow rounded-2xl lg:w-[220px] xl:w-[280px] 2xl:w-[350px]">
+                    <div class="w-[250px] mx-auto sm:h-[320px] sm:w-full lg:w-[180px] xl:w-[250px]">
+                        <img class="w-full h-full object-cover object-center"
+                            src="{{ product.featured_image | image_url:original }}" alt="{{ product.title }}">
+                    </div>
+                    <div class="w-full h-[130px] flex flex-col justify-around items-center lg:h-fit lg:justify-center mx-auto">
+                        <div class="">
+                            <h3 class="text-center text-lg font-semibold text-gray-800">
+                                {{ product.title }}
+                            </h3>
+                        </div>
+                        <div class="">
+                            {% if product.compare_at_price != blank %}
+                            <p class="line-through text-red-700 text-sm">
+                                $ {{ product.compare_at_price }}
+                            </p>
+                            {% endif %}
+                            <p class="text-gray-800 text-sm font-bold">
+                                {{ product.price | money }}
+                            </p>
+                        </div>
+                        <div>
+                            {% comment %} {% for productVariant in product.variants %}
+                            {{ productVariant.available }}
+                            {% endfor %} {% endcomment %}
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+            {% else %}
+            <h3 class="font-semibold text-lg underline text-center">There is not product</h3>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Collection List Alt",
+    "settings": [
+        
+    ],
+    "presets": [
+        {
+            "name": "Collection list Alt"
+        }
+    ]
+}
+{% endschema %}
