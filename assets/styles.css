@@ -1004,6 +1004,10 @@ video {
   height: 100vh;
 }
 
+.h-\[320px\]{
+  height: 320px;
+}
+
 .w-3{
   width: 12px;
 }
@@ -1078,6 +1082,10 @@ video {
 
 .w-screen{
   width: 100vw;
+}
+
+.w-\[320px\]{
+  width: 320px;
 }
 
 .max-w-\[270px\]{
@@ -2336,6 +2344,11 @@ video {
   padding-bottom: 20px;
 }
 
+.py-3{
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
 .pl-3{
   padding-left: 12px;
 }
@@ -3076,6 +3089,18 @@ video {
     height: 450px;
   }
 
+  .sm\:h-\[350px\]{
+    height: 350px;
+  }
+
+  .sm\:h-\[370px\]{
+    height: 370px;
+  }
+
+  .sm\:h-\[380px\]{
+    height: 380px;
+  }
+
   .sm\:w-8{
     width: 32px;
   }
@@ -3159,6 +3184,10 @@ video {
     width: 350px;
   }
 
+  .md\:w-full{
+    width: 100%;
+  }
+
   .md\:max-w-\[341px\]{
     max-width: 341px;
   }
@@ -3181,6 +3210,10 @@ video {
 
   .md\:gap-2{
     gap: 8px;
+  }
+
+  .md\:gap-6{
+    gap: 24px;
   }
 
   .md\:text-4xl{
@@ -3273,12 +3306,12 @@ video {
     top: 360px;
   }
 
-  .lg\:z-10{
-    z-index: 10;
-  }
-
   .lg\:z-0{
     z-index: 0;
+  }
+
+  .lg\:z-10{
+    z-index: 10;
   }
 
   .lg\:col-span-1{
@@ -3303,26 +3336,6 @@ video {
 
   .lg\:mt-0{
     margin-top: 0px;
-  }
-
-  .lg\:mt-10{
-    margin-top: 40px;
-  }
-
-  .lg\:mt-\[300px\]{
-    margin-top: 300px;
-  }
-
-  .lg\:-mt-\[300px\]{
-    margin-top: -300px;
-  }
-
-  .lg\:-mt-\[100px\]{
-    margin-top: -100px;
-  }
-
-  .lg\:-mt-\[50px\]{
-    margin-top: -50px;
   }
 
   .lg\:\!block{
@@ -3442,6 +3455,10 @@ video {
     width: 100%;
   }
 
+  .lg\:w-\[330px\]{
+    width: 330px;
+  }
+
   .lg\:max-w-\[33\%\]{
     max-width: 33%;
   }
@@ -3466,16 +3483,16 @@ video {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .lg\:grid-cols-4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .lg\:grid-rows-2{
     grid-template-rows: repeat(2, minmax(0, 1fr));
   }
 
   .lg\:flex-col{
     flex-direction: column;
-  }
-
-  .lg\:items-start{
-    align-items: flex-start;
   }
 
   .lg\:items-center{
@@ -3496,6 +3513,14 @@ video {
 
   .lg\:gap-4{
     gap: 16px;
+  }
+
+  .lg\:gap-5{
+    gap: 20px;
+  }
+
+  .lg\:gap-6{
+    gap: 24px;
   }
 
   .lg\:rounded-s-lg{
@@ -3544,6 +3569,11 @@ video {
   .lg\:py-5{
     padding-top: 20px;
     padding-bottom: 20px;
+  }
+
+  .lg\:py-10{
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   .lg\:pl-10{
@@ -3704,6 +3734,10 @@ video {
 
   .xl\:w-\[610px\]{
     width: 610px;
+  }
+
+  .xl\:grid-cols-4{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .xl\:flex-row{
